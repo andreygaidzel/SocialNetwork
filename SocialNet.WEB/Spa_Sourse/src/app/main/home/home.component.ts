@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../../../services/user.service';
-import { User } from '../../../../models/dto-models';
+import { UserService } from '../../../services/user.service';
+import { User } from '../../../models/dto-models';
 
 @Component({
   selector: 'app-home-root',

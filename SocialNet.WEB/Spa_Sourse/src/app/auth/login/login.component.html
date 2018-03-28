@@ -1,0 +1,16 @@
+<div class="login">
+  <div class="form-login">
+    <h2>Авторизация</h2>
+    <form action="" method="post">
+      <label>Логин</label><br>
+      <input type="text" name="login" [(ngModel)]="name">
+      <br><br>
+      <label>Пароль</label><br>
+      <input type="password" name="password" [(ngModel)]="pass"><br><br>
+      <button type="submit" (click)="login()">Авторизация</button>
+    </form>
+    <a routerLink="/registration/">
+      Регистрация
+    </a>
+  </div>
+</div>

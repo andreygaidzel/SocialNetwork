@@ -1,30 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from '../services/user.service';
 
 import { AppComponent } from './app.component';
-import {HeaderComponent} from './сomponents/header/header.component';
-import {HomeComponent} from './сomponents/content/home/home.component';
-import {MenuComponent} from './сomponents/menu/menu.component';
-import {NotFoundComponent} from './сomponents/content/not-found/not-found.component';
+import { HeaderComponent } from './header/header.component';
+import { HomeComponent } from './main/home/home.component';
+import { MenuComponent } from './menu/menu.component';
+import { NotFoundComponent } from './main/not-found/not-found.component';
+import { MessagesComponent } from './main/messages/messages.component';
+import { FriendsComponent } from './main/friends/friends.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
+import { ROUTING } from './app.routing';
+import { MainComponent } from './main/main.component';
+import { AuthComponent } from './auth/auth.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './auth.guard';
+import { LoginService } from '../services/login.service';
 
-const appRoutes: Routes = [
-  {
-    path: '',
-    component: HomeComponent
-  },
- /* {
-    path: 'category',
-    component: CategoriesComponent
-  },*/
-  {
-    path: '**',
-    component: NotFoundComponent
-  }
-];
 
 @NgModule({
   declarations: [
@@ -32,15 +26,23 @@ const appRoutes: Routes = [
     HeaderComponent,
     HomeComponent,
     MenuComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    MessagesComponent,
+    FriendsComponent,
+    RegistrationComponent,
+    MainComponent,
+    AuthComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    ROUTING
   ],
-  providers: [UserService],
+  providers: [UserService, LoginService, AuthGuard],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule
+{
+}

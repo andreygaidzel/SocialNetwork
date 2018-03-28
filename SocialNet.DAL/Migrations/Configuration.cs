@@ -21,7 +21,22 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 1,
-                    Name = "Dmitriy"
+                    Name = "Dmitriy",
+                    Pass = "123456"
+                });
+
+                context.Users.Add(new User
+                {
+                    Id = 2,
+                    Name = "Ilya",
+                    Pass = "123456"
+                });
+
+                context.Users.Add(new User
+                {
+                    Id = 3,
+                    Name = "Olia",
+                    Pass = "123456"
                 });
             }
         }

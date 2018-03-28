@@ -1,29 +1,4 @@
-.main {
-  width: 100%;
-  height: 700px;
-
-  .header {
-    width: 100%;
-    height: 100px;
-    background: greenyellow;
-  }
-
-  .container {
-    width: 100%;
-    height: 500px;
-    background: #ffbdc7;
-    display: flex;
-
-    .menu {
-      width: 150px;
-      height: 400px;
-      background: #b0f8ff;
-    }
-
-    .content {
-      flex: 1;
-      background: gold;
-    }
-  }
+body {
+  margin: 0;
 }
 

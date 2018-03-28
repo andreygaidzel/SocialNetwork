@@ -25,5 +25,4 @@ namespace SocialNet.WEB.Controllers
             return UserService.List();
         }
     }
-  
 }
