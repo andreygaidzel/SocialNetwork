@@ -2,12 +2,12 @@ export class User
 {
   public id: number;
   public name: string;
-  public pass: string;
+  public password: string;
 }
 
 export class Login
 {
-  public name: string;
-  public pass: string;
+  public login: string;
+  public password: string;
 }
 

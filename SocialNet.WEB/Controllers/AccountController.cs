@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
-using SocialNet.Domain.User;
+using SocialNet.WEB.Models;
 using SocialNET.BLL.Abstract.Services;
 
 namespace SocialNet.WEB.Controllers
@@ -20,17 +20,10 @@ namespace SocialNet.WEB.Controllers
 
         [HttpPost]
         [Route("login")]
-        public bool Login([FromBody]UserDomain user)
+        public int Login([FromBody]LoginModel login)
         {
-            var list = AccountService.List().FirstOrDefault(x => x.Name == user.Name && x.Pass == user.Pass);
-            if (list != null)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return AccountService.Login(login.Login, login.Password);
+
         }
     }
 }

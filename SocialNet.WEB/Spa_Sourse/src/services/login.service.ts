@@ -11,11 +11,11 @@ export class LoginService
   {
   }
 
-  public login(name: string, pass: string): Observable<boolean>
+  public login(login: string, password: string): Observable<number>
   {
-    this.loginModel.name = name;
-    this.loginModel.pass = pass;
+    this.loginModel.login = login;
+    this.loginModel.password = password;
 
-    return this.http.post<boolean>('api/user/login', this.loginModel);
+    return this.http.post<number>('api/account/login', this.loginModel);
   }
 }

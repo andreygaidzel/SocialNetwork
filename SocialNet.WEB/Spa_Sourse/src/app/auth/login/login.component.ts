@@ -9,27 +9,30 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent
 {
-  public name: string;
-  public pass: string;
+  public login: string;
+  public password: string;
   private loginService: LoginService;
-  private isAutentification: boolean;
+  private userId: number;
 
   public constructor(loginService: LoginService, private router: Router)
   {
     this.loginService = loginService;
   }
 
-  public login(): void
+  public loginIn(): void
   {
-    console.log(this.name, this.pass);
+    console.log(this.login, this.password);
 
-    this.loginService.login(this.name, this.pass)
-      .subscribe((result: boolean) =>
+    this.loginService.login(this.login, this.password)
+      .subscribe((result: number) =>
       {
         console.log('result', result);
-        this.isAutentification = result;
-        if (this.isAutentification)
+        this.userId = result;
+
+        if (this.userId !== -1)
         {
+          localStorage.setItem('userId', this.userId.toString());
+          localStorage.setItem('login', 'true');
           this.router.navigate(['/home']);
         }
       });

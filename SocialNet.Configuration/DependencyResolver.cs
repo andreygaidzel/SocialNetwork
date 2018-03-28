@@ -15,6 +15,10 @@ namespace SocialNet.Configuration
 
             container.Register<IUserService, UserService>();
 
+            container.Register<IAccountRepository, AccountRepository>();
+
+            container.Register<IAccountService, AccountService>();
+
             container.Register<SocialNetContext>(new PerScopeLifetime());
         }
     }
