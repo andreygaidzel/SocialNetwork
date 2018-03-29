@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FriendsComponent } from './main/friends/friends.component';
 import { MessagesComponent } from './main/messages/messages.component';
 import { NotFoundComponent } from './main/not-found/not-found.component';
-import { HomeComponent } from './main/home/home.component';
+import { MyPageComponent } from './main/my-page/my-page.component';
 import { ModuleWithProviders } from '@angular/core';
 import { MainComponent } from './main/main.component';
 import { AuthComponent } from './auth/auth.component';
@@ -13,7 +13,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 const ROUTES: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'my-page',
     pathMatch: 'full'
   },
   {
@@ -36,8 +36,8 @@ const ROUTES: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'home',
-        component: HomeComponent
+        path: 'my-page',
+        component: MyPageComponent
       },
       {
         path: 'messages',

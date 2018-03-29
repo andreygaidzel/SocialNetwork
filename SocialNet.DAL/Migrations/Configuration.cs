@@ -22,21 +22,36 @@ namespace SocialNet.DAL.Migrations
                 {
                     Id = 1,
                     Name = "Dmitriy",
-                    Pass = "123456"
+                    Surname = "Buzo",
+                    Date = new DateTime(1993, 11, 1),
+                    City = "Минск",
+                    Login = "Demon",
+                    Password = "123456",
+                    Email = "dima@mail.ru"
                 });
 
                 context.Users.Add(new User
                 {
                     Id = 2,
                     Name = "Ilya",
-                    Pass = "123456"
+                    Surname = "Goncharov",
+                    Date = new DateTime(1993, 5, 1),
+                    City = "Витебск",
+                    Login = "ilya228",
+                    Password = "123456",
+                    Email = "diqw@mail.ru"
                 });
 
                 context.Users.Add(new User
                 {
                     Id = 3,
                     Name = "Olia",
-                    Pass = "123456"
+                    Surname = "Buzova",
+                    Date = new DateTime(1997,1, 1),
+                    City = "Минск",
+                    Login = "Olia228",
+                    Password = "123456",
+                    Email = "difda@mail.ru"
                 });
             }
         }

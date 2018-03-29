@@ -19,7 +19,7 @@ namespace SocialNet.DAL.Repositories
 
         public int Login(string login, string password)
         {
-            var user = Context.Users.ToList().FirstOrDefault(x => x.Name == login && x.Pass == password);
+            var user = Context.Users.ToList().FirstOrDefault(x => x.Login == login && x.Password == password);
             if (user != null)
             {
                 return user.Id;

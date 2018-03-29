@@ -3,11 +3,11 @@ import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/dto-models';
 
 @Component({
-  selector: 'app-home-root',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-my-page-root',
+  templateUrl: './my-page.component.html',
+  styleUrls: ['./my-page.component.scss']
 })
-export class HomeComponent implements OnInit
+export class MyPageComponent implements OnInit
 {
   public user: User[];
   private userService: UserService;

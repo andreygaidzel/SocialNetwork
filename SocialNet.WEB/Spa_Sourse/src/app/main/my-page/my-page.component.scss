@@ -1,0 +1,45 @@
+.my-page {
+  width: 100%;
+  height: 100%;
+  background: #ecf3f1;
+  display: flex;
+
+  .left {
+    width: 200px;
+    box-shadow: 0 0 1px grey;
+    padding: 10px;
+
+    .photo {
+      width: 200px;
+      height: 250px;
+      background: #6b6566;
+    }
+  }
+
+  .right {
+    flex: 1;
+    flex-direction: column;
+    padding: 10px;
+
+    .name {
+      font-size: 18pt;
+      margin-bottom: 10px;
+    }
+
+    .information {
+      width: 100%;
+      height: 300px;
+      box-shadow: 0 0 1px grey;
+      display: flex;
+
+      .description {
+        flex: 1;
+      }
+
+      .value {
+        flex: 1;
+        color: darkblue;
+      }
+    }
+  }
+}

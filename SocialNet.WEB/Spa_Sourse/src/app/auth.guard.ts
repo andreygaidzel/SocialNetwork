@@ -13,7 +13,7 @@ export class AuthGuard implements CanActivate
   {
     const login = localStorage.getItem('login');
     console.log('qq', login);
-    if (!login)
+    if (login !== 'true')
     {
       this.router.navigate(['/login']);
       return false;

@@ -6,7 +6,7 @@ import { UserService } from '../services/user.service';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './main/home/home.component';
+import { MyPageComponent } from './main/my-page/my-page.component';
 import { MenuComponent } from './menu/menu.component';
 import { NotFoundComponent } from './main/not-found/not-found.component';
 import { MessagesComponent } from './main/messages/messages.component';
@@ -18,13 +18,14 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { LoginService } from '../services/login.service';
+import { AuthService } from '../services/auth.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent,
+    MyPageComponent,
     MenuComponent,
     NotFoundComponent,
     MessagesComponent,
@@ -40,7 +41,7 @@ import { LoginService } from '../services/login.service';
     HttpClientModule,
     ROUTING
   ],
-  providers: [UserService, LoginService, AuthGuard],
+  providers: [UserService, LoginService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule
