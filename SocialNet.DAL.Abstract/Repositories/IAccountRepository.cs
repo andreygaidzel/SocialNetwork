@@ -9,6 +9,6 @@ namespace SocialNet.DAL.Abstract.Repositories
 {
     public interface IAccountRepository
     {
-        int Login(string name, string pass);
+        int Login(string email, string pass);
     }
 }

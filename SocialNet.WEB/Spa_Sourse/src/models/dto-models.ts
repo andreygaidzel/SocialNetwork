@@ -5,9 +5,8 @@ export class User
   public surname: string;
   public date: string;
   public city: string;
-  public login: string;
-  public password: string;
   public Email: string;
+  public password: string;
 }
 
 export class Authentication

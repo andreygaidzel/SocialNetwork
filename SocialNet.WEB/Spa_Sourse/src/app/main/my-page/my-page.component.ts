@@ -9,7 +9,6 @@ import { User } from '../../../models/dto-models';
 })
 export class MyPageComponent implements OnInit
 {
-  public user: User[];
   private userService: UserService;
 
   public constructor(userService: UserService)
@@ -23,9 +22,7 @@ export class MyPageComponent implements OnInit
       .subscribe(result =>
       {
         console.log('result', result);
-        this.user = result;
       });
 
-    console.log(this.user);
   }
 }

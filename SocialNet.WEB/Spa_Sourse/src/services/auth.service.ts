@@ -30,6 +30,13 @@ export class AuthService
 
   public remove()
   {
-      this.browserStorage.removeItem<Authentication>(AuthService.AUTHENTICATION);
+    this.auth = null;
+    this.browserStorage.removeItem<Authentication>(AuthService.AUTHENTICATION);
+  }
+
+  public isAuth(): boolean
+  {
+    const data = this.authentication;
+    return data !== null;
   }
 }

@@ -11,11 +11,10 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class LoginComponent
 {
-  public login: string;
+  public email: string;
   public password: string;
   private loginService: LoginService;
   private authService: AuthService;
-  private userId: number;
 
   public constructor(loginService: LoginService, authService: AuthService, private router: Router)
   {
@@ -25,27 +24,26 @@ export class LoginComponent
 
   public loginIn(): void
   {
-    console.log(this.login, this.password);
+   // console.log(this.email, this.password);
 
-    this.loginService.login(this.login, this.password)
+    this.loginService.login(this.email, this.password)
       .subscribe((result: number) =>
       {
-        console.log('result', result);
-        this.userId = result;
+      /* console.log('result', result);
+        this.authService.remove();*/
+      //  console.log('data', this.authService.authentication);
 
-        const test = new Authentication();
-        test.id = result;
-        test.login = this.login;
-
-        this.authService.add(test);
-
-        console.log('data', this.authService.authentication);
-
-        if (this.userId !== -1)
+        if (result !== -1)
         {
-          // localStorage.setItem('userId', this.userId.toString());
-          // localStorage.setItem('login', 'true');
-          this.router.navigate(['/my-page']);
+          const user = new Authentication();
+          user.id = result;
+          user.login = this.email;
+          this.authService.add(user);
+          this.router.navigate(['my-page']);
+        }
+        else
+        {
+          alert('Неверные Email или Пароль!');
         }
       });
   }

@@ -22,7 +22,7 @@ namespace SocialNet.WEB.Controllers
         [Route("login")]
         public int Login([FromBody]LoginModel login)
         {
-            return AccountService.Login(login.Login, login.Password);
+            return AccountService.Login(login.Email, login.Password);
 
         }
     }

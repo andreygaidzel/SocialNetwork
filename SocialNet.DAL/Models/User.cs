@@ -13,8 +13,7 @@ namespace SocialNet.DAL.Models
         public string Surname { get; set; }
         public DateTime Date { get; set; }
         public string City { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
     }
 }
