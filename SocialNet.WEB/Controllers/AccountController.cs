@@ -20,7 +20,7 @@ namespace SocialNet.WEB.Controllers
 
         [HttpPost]
         [Route("login")]
-        public int Login([FromBody]LoginModel login)
+        public long Login([FromBody]LoginModel login)
         {
             return AccountService.Login(login.Email, login.Password);
 

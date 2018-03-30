@@ -22,5 +22,12 @@ namespace SocialNet.DAL.Repositories
 
             return Mapper.Map<List<UserDomain>>(list);
         }
+
+        public UserDomain GetUser(long id)
+        {
+            var user = Context.Users.FirstOrDefault(x => x.Id == id);
+
+            return Mapper.Map<UserDomain>(user);
+        }
     }
 }

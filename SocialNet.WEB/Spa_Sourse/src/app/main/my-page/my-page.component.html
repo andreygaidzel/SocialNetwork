@@ -1,9 +1,9 @@
-<div class="my-page">
+<div class="my-page" *ngIf="user">
   <div class="left">
     <div class="photo"></div>
   </div>
   <div class="right">
-    <div class="name">Гончаров Илья</div>
+    <div class="name">{{user.name}} {{user.surname}}</div>
     <div class="information">
       <div class="description">
         Дата рождения: <br>
@@ -11,8 +11,8 @@
         Прописка: <br>
       </div>
       <div class="value">
-        1 апреля 1994г <br>
-        Витебск <br>
+        {{user.date | date:'dd LLLL yyyy'}} <br>
+        {{user.city}} <br>
         vk.com/2222121 <br>
       </div>
     </div>

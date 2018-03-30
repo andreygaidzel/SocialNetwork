@@ -10,5 +10,6 @@ namespace SocialNet.DAL.Abstract.Repositories
     public interface IUserRepository
     {
         List<UserDomain> List();
+        UserDomain GetUser(long id);
     }
 }

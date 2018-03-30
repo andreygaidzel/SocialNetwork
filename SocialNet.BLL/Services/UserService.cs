@@ -22,5 +22,10 @@ namespace SocialNet.BLL.Services
         {
             return UserRepository.List();
         }
+
+        public UserDomain GetUser(long id)
+        {
+            return UserRepository.GetUser(id);
+        }
     }
 }

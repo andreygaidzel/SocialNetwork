@@ -9,6 +9,6 @@ namespace SocialNET.BLL.Abstract.Services
 {
     public interface IAccountService
     {
-        int Login(string login, string password);
+        long Login(string login, string password);
     }
 }

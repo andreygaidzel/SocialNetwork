@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using SocialNet.DAL.Models;
 
 namespace SocialNet.DAL.Migrations
@@ -26,7 +27,12 @@ namespace SocialNet.DAL.Migrations
                     Date = new DateTime(1993, 11, 1),
                     City = "Минск",
                     Password = "123456",
-                    Email = "dima@mail.ru"
+                    Email = "dima@mail.ru",
+                    Friends = new List<Friendship>
+                    {
+                        new Friendship {UserFriendId = 2},
+                        new Friendship {UserFriendId = 3},
+                    }
                 });
 
                 context.Users.Add(new User
@@ -37,7 +43,12 @@ namespace SocialNet.DAL.Migrations
                     Date = new DateTime(1993, 5, 1),
                     City = "Витебск",
                     Password = "123456",
-                    Email = "ilya@mail.ru"
+                    Email = "ilya@mail.ru",
+                    Friends = new List<Friendship>
+                    {
+                        new Friendship {UserFriendId = 1},
+                        new Friendship {UserFriendId = 3},
+                    }
                 });
 
                 context.Users.Add(new User
@@ -48,7 +59,12 @@ namespace SocialNet.DAL.Migrations
                     Date = new DateTime(1997,1, 1),
                     City = "Минск",
                     Password = "123456",
-                    Email = "ola@mail.ru"
+                    Email = "ola@mail.ru",
+                    Friends = new List<Friendship>
+                    {
+                        new Friendship {UserFriendId = 2},
+                        new Friendship {UserFriendId = 1},
+                    }
                 });
             }
         }

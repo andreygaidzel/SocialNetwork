@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="Mapping\UserProfile.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Base\EntityBase.cs" />
+    <Compile Include="Models\Friendship.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\Base\BaseRepository.cs" />
@@ -74,5 +76,6 @@
       <Name>SocialNet.Domain</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

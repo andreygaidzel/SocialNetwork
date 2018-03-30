@@ -18,7 +18,7 @@ namespace SocialNet.BLL.Services
             AccountRepository = accountRepository;
         }
 
-        public int Login(string login, string password)
+        public long Login(string login, string password)
         {
             return AccountRepository.Login(login, password);
         }

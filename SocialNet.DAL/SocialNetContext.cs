@@ -12,8 +12,24 @@ namespace SocialNet.DAL
     {
         public SocialNetContext() : base("SocialNet")
         {
+            Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<Friendship> Friends { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<User>()
+                .HasMany(x => x.Friends)
+                .WithRequired()
+                .HasForeignKey(x => x.UserId);
+
+            modelBuilder.Entity<Friendship>()
+                .HasRequired(x => x.UserFriend)
+                .WithMany()
+                .HasForeignKey(x => x.UserFriendId)
+                .WillCascadeOnDelete(false);
+        }
     }
 }

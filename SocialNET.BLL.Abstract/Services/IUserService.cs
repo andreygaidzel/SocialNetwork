@@ -10,5 +10,6 @@ namespace SocialNET.BLL.Abstract.Services
     public interface IUserService
     {
         List<UserDomain> List();
+        UserDomain GetUser(long id);
     }
 }
