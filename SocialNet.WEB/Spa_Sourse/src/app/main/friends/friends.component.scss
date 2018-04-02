@@ -1,0 +1,25 @@
+.friends {
+
+  .friend {
+    height: 100px;
+    background: #ecf3f1;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+
+    .photo {
+      width: 90px;
+      height: 100px;
+      background: #6b6566;
+    }
+
+    .other {
+      flex: 1;
+      box-shadow: 0 0 1px grey;
+      padding: 10px;
+
+      .name {
+      }
+    }
+  }
+}

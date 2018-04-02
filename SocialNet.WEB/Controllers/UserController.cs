@@ -25,11 +25,19 @@ namespace SocialNet.WEB.Controllers
             return UserService.List();
         }
 
-        [HttpPost]
-        [Route("getUser")]
-        public UserDomain GetUser([FromBody]long id)
+        [HttpGet]
+        [Route("getUser/{id}")]
+        public UserDomain GetUser(long id)
         {
             return UserService.GetUser(id);
+        }
+
+        [HttpPost]
+        [Route("getFriends")]
+        public List<UserDomain> GetFriends([FromBody]long id)
+        {
+            var tt = UserService.GetFriends(id);
+            return tt;
         }
     }
 }

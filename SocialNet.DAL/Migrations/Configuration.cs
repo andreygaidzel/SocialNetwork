@@ -59,12 +59,7 @@ namespace SocialNet.DAL.Migrations
                     Date = new DateTime(1997,1, 1),
                     City = "Минск",
                     Password = "123456",
-                    Email = "ola@mail.ru",
-                    Friends = new List<Friendship>
-                    {
-                        new Friendship {UserFriendId = 2},
-                        new Friendship {UserFriendId = 1},
-                    }
+                    Email = "ola@mail.ru"
                 });
             }
         }

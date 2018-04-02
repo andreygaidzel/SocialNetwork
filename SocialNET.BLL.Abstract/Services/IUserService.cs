@@ -11,5 +11,6 @@ namespace SocialNET.BLL.Abstract.Services
     {
         List<UserDomain> List();
         UserDomain GetUser(long id);
+        List<UserDomain> GetFriends(long id);
     }
 }

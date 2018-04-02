@@ -1,3 +1,10 @@
-<div class="friends">
-  friends
+<div class="friends" *ngFor="let friend of friends">
+  <a [routerLink]="'/id/' + friend.id">
+    <div class="friend">
+      <div class="photo"></div>
+      <div class="other">
+        <div class="name">{{friend.name}} {{friend.surname}}</div>
+      </div>
+    </div>
+  </a>
 </div>

@@ -27,5 +27,10 @@ namespace SocialNet.BLL.Services
         {
             return UserRepository.GetUser(id);
         }
+
+        public List<UserDomain> GetFriends(long id)
+        {
+            return UserRepository.GetFriends(id);
+        }
     }
 }

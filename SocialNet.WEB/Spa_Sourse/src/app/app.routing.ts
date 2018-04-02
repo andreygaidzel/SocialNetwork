@@ -13,7 +13,7 @@ import { RegistrationComponent } from './auth/registration/registration.componen
 const ROUTES: Routes = [
   {
     path: '',
-    redirectTo: 'my-page',
+    redirectTo: 'id',
     pathMatch: 'full'
   },
   {
@@ -36,7 +36,11 @@ const ROUTES: Routes = [
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'my-page',
+        path: 'id',
+        component: MyPageComponent
+      },
+      {
+        path: 'id/:id',
         component: MyPageComponent
       },
       {
