@@ -39,5 +39,12 @@ namespace SocialNet.DAL.Repositories
 
             return Mapper.Map<List<UserDomain>>(frendlist);
         }
+
+        public List<UserDomain> Search(string searchWord)
+        {
+            var users = Context.Users.Where(x => x.Name.Contains(searchWord) || x.Surname.Contains(searchWord)).ToList();
+
+            return Mapper.Map<List<UserDomain>>(users);
+        }
     }
 }

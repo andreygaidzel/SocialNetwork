@@ -9,6 +9,7 @@ import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { RegistrationComponent } from './auth/registration/registration.component';
+import { SearchPageComponent } from './main/search-page/search-page.component';
 
 const ROUTES: Routes = [
   {
@@ -50,6 +51,10 @@ const ROUTES: Routes = [
       {
         path: 'friends',
         component: FriendsComponent
+      },
+      {
+        path: 'search/:word',
+        component: SearchPageComponent
       }
     ]
   },

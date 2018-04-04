@@ -24,4 +24,9 @@ export class UserService
   {
     return this.http.post<User[]>('api/user/getFriends', id);
   }
+
+  public search(searchWord: string): Observable<User[]>
+  {
+    return this.http.get<User[]>(`api/user/search/${searchWord}`);
+  }
 }

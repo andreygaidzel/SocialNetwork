@@ -1,0 +1,9 @@
+<div class="search-page">
+  <div class="input-search">
+    <input [(ngModel)]="search" (keyup.enter)="onEnter()">
+    <div class="search-x" (click)="onClear()"></div>
+  </div>
+  <div class="search-elements">
+    <app-user-grid-root></app-user-grid-root>
+  </div>
+</div>

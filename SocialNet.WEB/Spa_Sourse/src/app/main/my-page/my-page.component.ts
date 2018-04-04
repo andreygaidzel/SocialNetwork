@@ -29,21 +29,19 @@ export class MyPageComponent implements OnInit
     this.activateRoute.params.subscribe(params =>
     {
       this.userId = params['id'];
-    });
+      const userId = this.authService.authentication.id;
 
-    const userId = this.authService.authentication.id;
-
-    if (!this.userId)
-    {
-      this.userId = userId;
-      this.router.navigate([`id/${userId}`]);
-    }
-
-    this.userService.getUser(this.userId)
-      .subscribe(result =>
+      if (!this.userId)
       {
-        console.log('result', result);
-        this.user = result;
-      });
+        this.userId = userId;
+        this.router.navigate([`id/${userId}`]);
+      }
+
+      this.userService.getUser(this.userId)
+        .subscribe(result =>
+        {
+          this.user = result;
+        });
+    });
   }
 }

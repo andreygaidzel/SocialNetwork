@@ -32,5 +32,10 @@ namespace SocialNet.BLL.Services
         {
             return UserRepository.GetFriends(id);
         }
+
+        public List<UserDomain> Search(string searchWord)
+        {
+            return UserRepository.Search(searchWord);
+        }
     }
 }

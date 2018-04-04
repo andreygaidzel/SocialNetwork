@@ -12,5 +12,6 @@ namespace SocialNet.DAL.Abstract.Repositories
         List<UserDomain> List();
         UserDomain GetUser(long id);
         List<UserDomain> GetFriends(long id);
+        List<UserDomain> Search(string searchWord);
     }
 }

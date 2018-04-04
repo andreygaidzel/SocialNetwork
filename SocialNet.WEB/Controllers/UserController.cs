@@ -36,8 +36,14 @@ namespace SocialNet.WEB.Controllers
         [Route("getFriends")]
         public List<UserDomain> GetFriends([FromBody]long id)
         {
-            var tt = UserService.GetFriends(id);
-            return tt;
+            return UserService.GetFriends(id);
+        }
+
+        [HttpGet]
+        [Route("search/{searchWord}")]
+        public List<UserDomain> Search(string searchWord)
+        {
+            return UserService.Search(searchWord);
         }
     }
 }

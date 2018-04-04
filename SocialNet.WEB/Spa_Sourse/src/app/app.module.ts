@@ -19,6 +19,9 @@ import { LoginComponent } from './auth/login/login.component';
 import { AuthGuard } from './auth.guard';
 import { LoginService } from '../services/login.service';
 import { AuthService } from '../services/auth.service';
+import { SearchComponent } from './header/search/search.component';
+import { SearchPageComponent } from './main/search-page/search-page.component';
+import { UserGridComponent } from '../core/user-grid/user-grid.component';
 
 
 @NgModule({
@@ -33,7 +36,10 @@ import { AuthService } from '../services/auth.service';
     RegistrationComponent,
     MainComponent,
     AuthComponent,
-    LoginComponent
+    LoginComponent,
+    SearchComponent,
+    SearchPageComponent,
+    UserGridComponent
   ],
   imports: [
     BrowserModule,
