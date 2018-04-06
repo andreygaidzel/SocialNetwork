@@ -8,10 +8,10 @@
       <div class="all-search">Показать все результаты</div>
     </a>
     <div class="in-modal" *ngFor="let user of users; let i = index">
-      <a [routerLink]="'/id/' + user.id" *ngIf="i < 6">
+      <a [routerLink]="'/id/' + user.id" *ngIf="i < 6" (click)="onClear()">
         <div class="friend">
           <div class="photo"></div>
-          <div class="name">{{user.name}} {{user.surname}}</div>
+          <div class="name">{{user.firstName}} {{user.lastName}}</div>
         </div>
       </a>
     </div>

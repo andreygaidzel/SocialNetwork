@@ -1,9 +1,11 @@
 <div class="my-page" *ngIf="user">
   <div class="left">
     <div class="photo"></div>
+    <div class="message">Написать сообщение</div>
+    <div class="add-friend" (click)="addFriend()">Добавить в друзья</div>
   </div>
   <div class="right">
-    <div class="name">{{user.name}} {{user.surname}}</div>
+    <div class="name">{{user.firstName}} {{user.lastName}}</div>
     <div class="information">
       <div class="description">
         Дата рождения: <br>
@@ -11,7 +13,7 @@
         Прописка: <br>
       </div>
       <div class="value">
-        {{user.date | date:'dd LLLL yyyy'}} <br>
+        {{user.dateOfBirth | date:'dd LLLL yyyy'}} <br>
         {{user.city}} <br>
         vk.com/2222121 <br>
       </div>

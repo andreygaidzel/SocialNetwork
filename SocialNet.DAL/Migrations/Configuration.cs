@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using SocialNet.DAL.Models;
+using SocialNet.Domain.Enums;
 
 namespace SocialNet.DAL.Migrations
 {
@@ -22,41 +23,31 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 1,
-                    Name = "Dmitriy",
-                    Surname = "Buzo",
-                    Date = new DateTime(1993, 11, 1),
+                    FirstName = "Dmitriy",
+                    LastName = "Buzo",
+                    DateOfBirth = new DateTime(1993, 11, 1),
                     City = "Минск",
                     Password = "123456",
-                    Email = "dima@mail.ru",
-                    Friends = new List<Friendship>
-                    {
-                        new Friendship {UserFriendId = 2},
-                        new Friendship {UserFriendId = 3},
-                    }
+                    Email = "dima@mail.ru"
                 });
 
                 context.Users.Add(new User
                 {
                     Id = 2,
-                    Name = "Ilya",
-                    Surname = "Goncharov",
-                    Date = new DateTime(1993, 5, 1),
+                    FirstName = "Ilya",
+                    LastName = "Goncharov",
+                    DateOfBirth = new DateTime(1993, 5, 1),
                     City = "Витебск",
                     Password = "123456",
-                    Email = "ilya@mail.ru",
-                    Friends = new List<Friendship>
-                    {
-                        new Friendship {UserFriendId = 1},
-                        new Friendship {UserFriendId = 3},
-                    }
+                    Email = "ilya@mail.ru"
                 });
 
                 context.Users.Add(new User
                 {
                     Id = 3,
-                    Name = "Olia",
-                    Surname = "Buzova",
-                    Date = new DateTime(1997,1, 1),
+                    FirstName = "Olia",
+                    LastName = "Buzova",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "ola@mail.ru"
@@ -65,9 +56,9 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 4,
-                    Name = "Olia4",
-                    Surname = "Buzova4",
-                    Date = new DateTime(1997, 1, 1),
+                    FirstName = "Olia4",
+                    LastName = "Buzova4",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "9ola@mail.ru"
@@ -76,9 +67,9 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 5,
-                    Name = "Olia5",
-                    Surname = "Buzova5",
-                    Date = new DateTime(1997, 1, 1),
+                    FirstName = "Olia5",
+                    LastName = "Buzova5",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "8ola@mail.ru"
@@ -87,9 +78,9 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 6,
-                    Name = "Olia6",
-                    Surname = "Buzova6",
-                    Date = new DateTime(1997, 1, 1),
+                    FirstName = "Olia6",
+                    LastName = "Buzova6",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "7ola@mail.ru"
@@ -98,9 +89,9 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 7,
-                    Name = "Olia7",
-                    Surname = "Buzova7",
-                    Date = new DateTime(1997, 1, 1),
+                    FirstName = "Olia7",
+                    LastName = "Buzova7",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "6ola@mail.ru"
@@ -109,9 +100,9 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 8,
-                    Name = "Olia8",
-                    Surname = "Buzova8",
-                    Date = new DateTime(1997, 1, 1),
+                    FirstName = "Olia8",
+                    LastName = "Buzova8",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "5ola@mail.ru"
@@ -120,9 +111,9 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 9,
-                    Name = "Olia9",
-                    Surname = "Buzova9",
-                    Date = new DateTime(1997, 1, 1),
+                    FirstName = "Olia9",
+                    LastName = "Buzova9",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "4ola@mail.ru"
@@ -131,9 +122,9 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 10,
-                    Name = "Olia10",
-                    Surname = "Buzova10",
-                    Date = new DateTime(1997, 1, 1),
+                    FirstName = "Olia10",
+                    LastName = "Buzova10",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "3ola@mail.ru"
@@ -142,9 +133,9 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 11,
-                    Name = "Olia11",
-                    Surname = "Buzova11",
-                    Date = new DateTime(1997, 1, 1),
+                    FirstName = "Olia11",
+                    LastName = "Buzova11",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "2ola@mail.ru"
@@ -153,12 +144,69 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 12,
-                    Name = "Olia12",
-                    Surname = "Buzova12",
-                    Date = new DateTime(1997, 1, 1),
+                    FirstName = "Olia12",
+                    LastName = "Buzova12",
+                    DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
                     Email = "1ola@mail.ru"
+                });
+            }
+
+            if (!context.Friendships.Any())
+            {
+                context.Friendships.Add(new Friendship
+                {
+                    Id = 1,
+                    UserOneId = 1,
+                    UserTwoId = 2,
+                    Status = FriendStatus.Friend,
+                    ActionUserId = 1
+                });
+
+                context.Friendships.Add(new Friendship
+                {
+                    Id = 2,
+                    UserOneId = 1,
+                    UserTwoId = 3,
+                    Status = FriendStatus.Friend,
+                    ActionUserId = 1
+                });
+
+                context.Friendships.Add(new Friendship
+                {
+                    Id = 3,
+                    UserOneId = 1,
+                    UserTwoId = 4,
+                    Status = FriendStatus.Friend,
+                    ActionUserId = 4
+                });
+
+                context.Friendships.Add(new Friendship
+                {
+                    Id = 4,
+                    UserOneId = 1,
+                    UserTwoId = 5,
+                    Status = FriendStatus.Pending,
+                    ActionUserId = 1
+                });
+
+                context.Friendships.Add(new Friendship
+                {
+                    Id = 5,
+                    UserOneId = 1,
+                    UserTwoId = 6,
+                    Status = FriendStatus.Rejected,
+                    ActionUserId = 1
+                });
+
+                context.Friendships.Add(new Friendship
+                {
+                    Id = 6,
+                    UserOneId = 1,
+                    UserTwoId = 7,
+                    Status = FriendStatus.Blocked,
+                    ActionUserId = 1
                 });
             }
         }

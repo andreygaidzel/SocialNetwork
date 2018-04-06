@@ -5,14 +5,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SocialNet.DAL.Models.Base;
+using SocialNet.Domain.Enums;
 
 namespace SocialNet.DAL.Models
 {
     public class Friendship: EntityBase
     {
-        public long UserId { get; set; }
+        public long UserOneId { get; set; }
 
-        public long UserFriendId { get; set; }
-        public User UserFriend { get; set; }
+        public long UserTwoId { get; set; }
+
+        public FriendStatus Status { get; set; }
+    
+        public long ActionUserId { get; set; }
     }
 }

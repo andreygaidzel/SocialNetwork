@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.0.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.0.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="LightInject, Version=5.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\LightInject.5.1.2\lib\net46\LightInject.dll</HintPath>
@@ -67,6 +67,10 @@
     <ProjectReference Include="..\SocialNet.DAL\SocialNet.DAL.csproj">
       <Project>{8199c8f2-efc1-4f14-9058-4a92a33101a7}</Project>
       <Name>SocialNet.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SocialNet.Domain\SocialNet.Domain.csproj">
+      <Project>{8a751fc5-72dd-4816-ac95-f5a35aa60d43}</Project>
+      <Name>SocialNet.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

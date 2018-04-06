@@ -13,7 +13,7 @@ namespace SocialNet.DAL.Mapping
     {
         public UserProfile()
         {
-            CreateMap<UserProfile, UserDomain>();
+            CreateMap<User, UserDomain>();
             CreateMap<UserDomain, User>();
         }
     }

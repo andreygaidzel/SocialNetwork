@@ -1,12 +1,15 @@
+import { UserRelationType } from './dto-enums';
+
 export class User
 {
-  public id: number;
-  public name: string;
-  public surname: string;
-  public date: string;
-  public city: string;
   public Email: string;
   public password: string;
+  public id: number;
+  public firstName: string;
+  public lastName: string;
+  public dateOfBirth: string;
+  public city: string;
+  public relationType: UserRelationType;
 }
 
 export class Authentication

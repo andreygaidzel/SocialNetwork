@@ -18,7 +18,7 @@ namespace SocialNet.DAL
         public DbSet<User> Users { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+      /*  protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
                 .HasMany(x => x.Friends)
@@ -30,6 +30,6 @@ namespace SocialNet.DAL
                 .WithMany()
                 .HasForeignKey(x => x.UserFriendId)
                 .WillCascadeOnDelete(false);
-        }
+        }*/
     }
 }
