@@ -1,16 +1,17 @@
 export enum UserRelationType
 {
-  I,
-  Friend,
-  InPending,
-  OutPending,
-  None
+  I           = 0,
+  Friend      = 1,
+  InFollower  = 2,
+  OutFollower = 3,
+  Blocked     = 4,
+  None        = 5
 }
 
 export enum FriendStatus
 {
-  Pending,
-  Friend,
-  Rejected,
-  Blocked
+  FollowerPendingInFriend = 0,
+  Follower                = 1,
+  Friend                  = 2,
+  Blocked                 = 3
 }

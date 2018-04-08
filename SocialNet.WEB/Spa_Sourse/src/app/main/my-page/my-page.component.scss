@@ -15,26 +15,29 @@
       background: #6b6566;
     }
 
-    .message {
+    .button {
       width: 200px;
-      height: 25px;
+      height: 35px;
       margin-top: 10px;
       background: #759bff;
       border-radius: 5px;
       cursor: pointer;
       text-align: -webkit-center;
-      padding: 5px;
+      padding-top: 6px;
+      box-shadow: 0 5px 8px grey;
     }
 
-    .add-friend{
+    .button:hover {
+      background: rgba(123, 149, 255, 0.85);
+    }
+
+    .status {
       width: 200px;
-      height: 25px;
+      height: 20px;
       margin-top: 10px;
-      background: #759bff;
-      border-radius: 5px;
-      cursor: pointer;
+      background: #d3d5eb;
       text-align: -webkit-center;
-      padding: 5px;
+      padding-top: 4px;
     }
   }
 

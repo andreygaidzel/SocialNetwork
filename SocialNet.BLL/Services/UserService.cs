@@ -44,7 +44,14 @@ namespace SocialNet.BLL.Services
 
         public UserDomain ChangeRelation(long friendId, FriendStatus? status)
         {
-            return UserRepository.ChangeRelation(UserInfo.MyId, friendId, status.Value);
+            if (status == null)
+            {
+                return UserRepository.DeleteRelation(UserInfo.MyId, friendId);
+            }
+            else
+            {
+                return UserRepository.ChangeRelation(UserInfo.MyId, friendId, status.Value);
+            } 
         }
     }
 }

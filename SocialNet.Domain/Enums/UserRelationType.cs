@@ -2,11 +2,11 @@
 {
     public enum UserRelationType
     {
-        I,
-        Friend,
-        InPending,
-        OutPending,
-        Blocked,
-        None
+        I = 0,
+        Friend = 1,
+        InFollower = 2,
+        OutFollower = 3,
+        Blocked = 4,
+        None = 5
     }
 }

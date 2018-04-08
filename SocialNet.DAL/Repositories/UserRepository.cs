@@ -43,9 +43,7 @@ namespace SocialNet.DAL.Repositories
                 secondValue = userId;
             }
 
-            var friendShip = Context.Friendships.FirstOrDefault(x => x.UserOneId == firstValue && x.UserTwoId == secondValue);
-
-            return friendShip;
+            return Context.Friendships.FirstOrDefault(x => x.UserOneId == firstValue && x.UserTwoId == secondValue);
         }
         
         public UserDomain GetUser(long myId, long userId)
@@ -85,12 +83,13 @@ namespace SocialNet.DAL.Repositories
                         case FriendStatus.Blocked:
                             type = UserRelationType.Blocked;
                             break;
-                        case FriendStatus.Pending when friendShip.ActionUserId == myId:
-                        case FriendStatus.Rejected:
-                            type = UserRelationType.OutPending;
+                        case FriendStatus.FollowerPendingInFriend when friendShip.ActionUserId == myId:
+                        case FriendStatus.Follower when friendShip.ActionUserId == myId:
+                            type = UserRelationType.OutFollower;
                             break;
-                        case FriendStatus.Pending when friendShip.ActionUserId == userId:
-                            type = UserRelationType.InPending;
+                        case FriendStatus.FollowerPendingInFriend when friendShip.ActionUserId == userId:
+                        case FriendStatus.Follower when friendShip.ActionUserId == userId:
+                            type = UserRelationType.InFollower;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -101,7 +100,7 @@ namespace SocialNet.DAL.Repositories
             return type;
         }
 
-        public List<UserDomain> GetFriends(long id, UserRelationType type)
+        public List<UserDomain> GetFriends(long myId, UserRelationType type)
         {
             var friendship = Context.Friendships.AsQueryable();
 
@@ -109,24 +108,24 @@ namespace SocialNet.DAL.Repositories
             {
                 case UserRelationType.Friend:
                     friendship = friendship
-                        .Where(x => (x.UserOneId == id || x.UserTwoId == id) 
+                        .Where(x => (x.UserOneId == myId || x.UserTwoId == myId) 
                                     && x.Status == FriendStatus.Friend);
                     break;
-                case UserRelationType.InPending:
+                case UserRelationType.InFollower:
                     friendship = friendship
-                        .Where(x => (x.UserOneId == id || x.UserTwoId == id) 
-                                    && x.Status == FriendStatus.Pending 
-                                    && x.ActionUserId != id);
+                        .Where(x => (x.UserOneId == myId || x.UserTwoId == myId) 
+                                    && x.Status == FriendStatus.FollowerPendingInFriend 
+                                    && x.ActionUserId != myId);
                     break;
-                case UserRelationType.OutPending:
+                case UserRelationType.OutFollower:
                     friendship = friendship
-                        .Where(x => (x.UserOneId == id || x.UserTwoId == id) 
-                                    && x.Status == FriendStatus.Pending 
-                                    && x.ActionUserId == id);
+                        .Where(x => (x.UserOneId == myId || x.UserTwoId == myId) 
+                                    && x.Status == FriendStatus.FollowerPendingInFriend 
+                                    && x.ActionUserId == myId);
                     break;
             }
 
-            var friendsId = friendship.Select(x => x.UserOneId == id ? x.UserTwoId : x.UserOneId);
+            var friendsId = friendship.Select(x => x.UserOneId == myId ? x.UserTwoId : x.UserOneId);
             var friends = Context.Users.Where(x => friendsId.Contains(x.Id)).ToList();
 
             return Mapper.Map<List<UserDomain>>(friends);
@@ -140,21 +139,26 @@ namespace SocialNet.DAL.Repositories
             return Mapper.Map<List<UserDomain>>(users);
         }
 
-        public UserDomain ChangeRelation(long friendId, long myId, FriendStatus status)
+        public UserDomain ChangeRelation(long myId, long userId, FriendStatus status)
         {
-            var friendShip = GetFriendship(myId, friendId);
+            var friendShip = GetFriendship(myId, userId);
             
             if (friendShip != null)
             {
                 friendShip.Status = status;
                 friendShip.ActionUserId = myId;
+
+                if (status == FriendStatus.Follower)
+                {
+                    friendShip.ActionUserId = userId;
+                }
             }
             else
             {
                 Context.Friendships.Add(new Friendship
                 {
-                    UserOneId = (friendId < myId) ? friendId : myId,
-                    UserTwoId = (friendId > myId) ? friendId : myId,
+                    UserOneId = (userId < myId) ? userId : myId,
+                    UserTwoId = (userId > myId) ? userId : myId,
                     Status = status,
                     ActionUserId = myId
                 });
@@ -162,7 +166,19 @@ namespace SocialNet.DAL.Repositories
 
             Context.SaveChanges();
 
-            var user = GetUser(myId, friendId);
+            var user = GetUser(myId, userId);
+
+            return Mapper.Map<UserDomain>(user);
+        }
+
+        public UserDomain DeleteRelation(long myId, long userId)
+        {
+            var friendShip = GetFriendship(myId, userId);
+
+            Context.Friendships.Remove(friendShip);
+            Context.SaveChanges();
+
+            var user = GetUser(myId, userId);
 
             return Mapper.Map<UserDomain>(user);
         }

@@ -2,9 +2,9 @@
 {
     public enum FriendStatus
     {
-        Pending,
-        Friend,
-        Rejected,
-        Blocked
+        FollowerPendingInFriend = 0,
+        Follower = 1,
+        Friend = 2,
+        Blocked = 3
     }
 }

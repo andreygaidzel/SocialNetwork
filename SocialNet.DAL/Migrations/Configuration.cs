@@ -187,7 +187,7 @@ namespace SocialNet.DAL.Migrations
                     Id = 4,
                     UserOneId = 1,
                     UserTwoId = 5,
-                    Status = FriendStatus.Pending,
+                    Status = FriendStatus.FollowerPendingInFriend,
                     ActionUserId = 1
                 });
 
@@ -196,7 +196,7 @@ namespace SocialNet.DAL.Migrations
                     Id = 5,
                     UserOneId = 1,
                     UserTwoId = 6,
-                    Status = FriendStatus.Rejected,
+                    Status = FriendStatus.Follower,
                     ActionUserId = 1
                 });
 

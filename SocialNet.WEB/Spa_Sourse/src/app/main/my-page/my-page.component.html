@@ -1,8 +1,20 @@
 <div class="my-page" *ngIf="user">
   <div class="left">
     <div class="photo"></div>
-    <div class="message">Написать сообщение</div>
-    <div class="add-friend" (click)="addFriend()">Добавить в друзья</div>
+    <button class="button" *ngIf="onMessageShow">Написать сообщение</button>
+    <button class="button" *ngIf="onFriendAddShow" (click)="inFriend()">Добавить в друзья</button>
+    <button class="button" *ngIf="onMySettings">Редактировать</button>
+    <button class="button" *ngIf="onInFriends" (click)="addFriend()">Принять</button>
+    <button class="button" *ngIf="onOutFriends" (click)="deleteMyFollower()">Отменить запрос</button>
+
+    <div class="status" *ngIf="onOutFriends">Вы отравили запрос</div>
+    <div class="status" *ngIf="onInFriends">{{user.firstName}} предлагает дружбу</div>
+    <div class="status" *ngIf="onIsFriend">{{user.firstName}} ваш друг
+      <button (click)="deleteFriend()">Удалить</button>
+    </div>
+    <div class="status" *ngIf="onIsBlocked">{{user.firstName}} вас заблокировал</div>
+
+
   </div>
   <div class="right">
     <div class="name">{{user.firstName}} {{user.lastName}}</div>
