@@ -11,9 +11,9 @@ namespace SocialNET.BLL.Abstract.Services
     public interface IUserService
     {
         List<UserDomain> List();
-        UserDomain GetUser(long myId, long userId);
-        List<UserDomain> GetFriends(long id, UserRelationType type);
+        UserDomain GetUser(long userId);
+        List<UserDomain> GetFriends(UserRelationType type);
         List<UserDomain> Search(string searchWord);
-        UserDomain ChangeRelation(long friendId, long myId, FriendStatus status);
+        UserDomain ChangeRelation(long friendId, FriendStatus? status);
     }
 }

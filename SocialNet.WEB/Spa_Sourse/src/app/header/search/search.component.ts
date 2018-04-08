@@ -50,8 +50,7 @@ export class SearchComponent
   {
     this.isShow = true;
 
-    const userId = this.authService.authentication.id;
-    this.userService.getFriends(userId, UserRelationType.Friend)
+    this.userService.getFriends( UserRelationType.Friend)
       .subscribe(result =>
       {
         this.users = result;

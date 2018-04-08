@@ -22,6 +22,7 @@ import { AuthService } from '../services/auth.service';
 import { SearchComponent } from './header/search/search.component';
 import { SearchPageComponent } from './main/search-page/search-page.component';
 import { UserGridComponent } from '../core/user-grid/user-grid.component';
+import { HttpService } from '../services/http.service';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { UserGridComponent } from '../core/user-grid/user-grid.component';
     HttpClientModule,
     ROUTING
   ],
-  providers: [UserService, LoginService, AuthService, AuthGuard],
+  providers: [UserService, LoginService, AuthService, AuthGuard, HttpService],
   bootstrap: [AppComponent]
 })
 export class AppModule

@@ -12,8 +12,8 @@ namespace SocialNet.DAL.Abstract.Repositories
     {
         List<UserDomain> List();
         UserDomain GetUser(long myId, long userId);
-        List<UserDomain> GetFriends(long id, UserRelationType type);
+        List<UserDomain> GetFriends(long myid, UserRelationType type);
         List<UserDomain> Search(string searchWord);
-        UserDomain ChangeRelation(long friendId, long myId, FriendStatus status);
+        UserDomain ChangeRelation(long myId, long userId,  FriendStatus status);
     }
 }

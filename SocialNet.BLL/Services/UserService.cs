@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using SocialNet.DAL.Abstract.Repositories;
 using SocialNet.Domain.Enums;
 using SocialNet.Domain.User;
+using SocialNet.Security;
 using SocialNET.BLL.Abstract.Services;
 
 namespace SocialNet.BLL.Services
@@ -13,10 +14,12 @@ namespace SocialNet.BLL.Services
     public class UserService : IUserService
     {
         private IUserRepository UserRepository { get; }
+        private WebUserInfo UserInfo { get; }
 
-        public UserService(IUserRepository userRepository)
+        public UserService(IUserRepository userRepository, WebUserInfo userInfo)
         {
             UserRepository = userRepository;
+            UserInfo = userInfo;
         }
 
         public List<UserDomain> List()
@@ -24,14 +27,14 @@ namespace SocialNet.BLL.Services
             return UserRepository.List();
         }
 
-        public UserDomain GetUser(long myId, long userId)
+        public UserDomain GetUser(long userId)
         {
-            return UserRepository.GetUser(myId, userId);
+            return UserRepository.GetUser(UserInfo.MyId, userId);
         }
 
-        public List<UserDomain> GetFriends(long id, UserRelationType type)
+        public List<UserDomain> GetFriends(UserRelationType type)
         {
-            return UserRepository.GetFriends(id, type);
+            return UserRepository.GetFriends(UserInfo.MyId, type);
         }
 
         public List<UserDomain> Search(string searchWord)
@@ -39,9 +42,9 @@ namespace SocialNet.BLL.Services
             return UserRepository.Search(searchWord);
         }
 
-        public UserDomain ChangeRelation(long friendId, long myId, FriendStatus status)
+        public UserDomain ChangeRelation(long friendId, FriendStatus? status)
         {
-            return UserRepository.ChangeRelation(friendId, myId, status);
+            return UserRepository.ChangeRelation(UserInfo.MyId, friendId, status.Value);
         }
     }
 }

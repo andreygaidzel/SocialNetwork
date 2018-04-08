@@ -38,9 +38,7 @@ export class FriendsComponent implements OnInit
 
   public getFriends(type: UserRelationType): void
   {
-    const userId = this.authService.authentication.id;
-
-    this.userService.getFriends(userId, type)
+    this.userService.getFriends(type)
       .subscribe(result =>
       {
         console.log('result', result);

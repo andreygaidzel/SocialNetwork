@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using SocialNet.Domain.Enums;
@@ -27,17 +28,17 @@ namespace SocialNet.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("getUser/{myId}/{userId}")]
-        public UserDomain GetUser(long myId, long userId)
+        [Route("getUser/{userId}")]
+        public UserDomain GetUser(long userId)
         {
-            return UserService.GetUser(myId, userId);
+            return UserService.GetUser(userId);
         }
 
         [HttpGet]
-        [Route("getFriends/{id}/{type}")]
-        public List<UserDomain> GetFriends(long id, UserRelationType type)
+        [Route("getFriends/{type}")]
+        public List<UserDomain> GetFriends(UserRelationType type)
         {
-            return UserService.GetFriends(id, type);
+            return UserService.GetFriends(type);
         }
 
         [HttpGet]
@@ -48,10 +49,10 @@ namespace SocialNet.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("changeRelation/{friendId}/{myId}/{status}")]
-        public UserDomain ChangeRelation(long friendId, long myId, FriendStatus status)
+        [Route("changeRelation/{friendId}/{status}")]
+        public UserDomain ChangeRelation(long friendId, FriendStatus? status)
         {
-            return UserService.ChangeRelation(friendId, myId, status);
+            return UserService.ChangeRelation(friendId, status);
         }
     }
 }

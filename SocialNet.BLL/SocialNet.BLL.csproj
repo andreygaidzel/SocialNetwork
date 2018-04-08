@@ -57,6 +57,10 @@
       <Project>{8a751fc5-72dd-4816-ac95-f5a35aa60d43}</Project>
       <Name>SocialNet.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SocialNet.Security\SocialNet.Security.csproj">
+      <Project>{1fa8219c-4926-463a-a52b-5c24f031b64d}</Project>
+      <Name>SocialNet.Security</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
