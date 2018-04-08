@@ -10,10 +10,9 @@ namespace SocialNET.BLL.Abstract.Services
 {
     public interface IUserService
     {
-        List<UserDomain> List();
         UserDomain GetUser(long userId);
-        List<UserDomain> GetFriends(UserRelationType type);
+        List<UserDomain> GetFriends(UserRelation userRelation);
         List<UserDomain> Search(string searchWord);
-        UserDomain ChangeRelation(long friendId, FriendStatus? status);
+        UserDomain ChangeRelation(long userId, FriendStatus? friendStatus);
     }
 }

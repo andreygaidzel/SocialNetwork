@@ -3,7 +3,7 @@ import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/dto-models';
 import { UserGridComponent } from '../../../core/user-grid/user-grid.component';
-import { UserRelationType } from '../../../models/dto-enums';
+import { UserRelation } from '../../../models/dto-enums';
 
 @Component({
   selector: 'app-friends-root',
@@ -18,7 +18,7 @@ export class FriendsComponent implements OnInit
   private userService: UserService;
 
   public friends: User[];
-  public friendType = UserRelationType;
+  public friendType = UserRelation;
 
   public constructor(userService: UserService, authService: AuthService)
   {
@@ -31,12 +31,12 @@ export class FriendsComponent implements OnInit
     this.getFriends(this.friendType.Friend);
   }
 
-  public onFriends(type: UserRelationType): void
+  public onFriends(type: UserRelation): void
   {
     this.getFriends(type);
   }
 
-  public getFriends(type: UserRelationType): void
+  public getFriends(type: UserRelation): void
   {
     this.userService.getFriends(type)
       .subscribe(result =>

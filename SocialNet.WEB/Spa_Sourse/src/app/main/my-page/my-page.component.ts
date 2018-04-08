@@ -4,7 +4,7 @@ import { User } from '../../../models/dto-models';
 import { AuthService } from '../../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
-import { FriendStatus, UserRelationType } from '../../../models/dto-enums';
+import { FriendStatus, UserRelation } from '../../../models/dto-enums';
 
 @Component({
   selector: 'app-my-page-root',
@@ -15,14 +15,19 @@ export class MyPageComponent implements OnInit
 {
   private authService: AuthService;
   private userService: UserService;
+  private activateRoute: ActivatedRoute;
+  private router: Router;
 
   public user: User;
   public userId: number;
+  public friendStatus = FriendStatus;
 
-  public constructor(userService: UserService, authService: AuthService, private activateRoute: ActivatedRoute, private router: Router)
+  public constructor(userService: UserService, authService: AuthService, activateRoute: ActivatedRoute, router: Router)
   {
     this.userService = userService;
     this.authService = authService;
+    this.activateRoute = activateRoute;
+    this.router = router;
   }
 
   public ngOnInit(): void
@@ -39,83 +44,72 @@ export class MyPageComponent implements OnInit
       }
 
       this.userService.getUser(this.userId)
-        .subscribe(result =>
+        .subscribe(user =>
         {
-          this.user = result;
-          console.log(result);
+          this.user = user;
+          console.log(user);
         });
-
     });
   }
-  /***********************************button events*******************************************/
 
-  public inFriend(): void
+  private onSendRelation(friendStatus: FriendStatus): void
   {
-    this.sendRelation(FriendStatus.FollowerPendingInFriend);
-  }
-
-  public addFriend(): void
-  {
-    this.sendRelation(FriendStatus.Friend);
-  }
-
-  public deleteMyFollower(): void
-  {
-    this.sendRelation(null); /////////////////////////////////////////////////////////////
-  }
-
-  public deleteFriend(): void
-  {
-    this.sendRelation(FriendStatus.Follower);
-  }
-
-  private sendRelation(status: FriendStatus): void
-  {
-    this.userService.changeRelation(this.userId, status)
-      .subscribe(result =>
+    this.userService.changeRelation(this.userId, friendStatus)
+      .subscribe(user =>
       {
-        this.user = result;
+        this.user = user;
       });
   }
-/***************************************show elements****************************************/
 
-  public get onMessageShow(): boolean
+  public get isMessageShow(): boolean
   {
-    const isNotBlocked = this.user.relationType !== UserRelationType.Blocked;
-    const isNotI = this.user.relationType !== UserRelationType.I;
+    const isInBlocked = this.user.relationType !== UserRelation.InBlocked;
+    const isOutBlocked = this.user.relationType !== UserRelation.OutBlocked;
+    const isNotI = this.user.relationType !== UserRelation.I;
 
-    return isNotBlocked && isNotI;
+    return isInBlocked && isNotI && isOutBlocked;
   }
 
-  public get onFriendAddShow(): boolean
+  public get isFriendAddShow(): boolean
   {
-    const isNone = this.user.relationType === UserRelationType.None;
-
-    return isNone;
+    return this.user.relationType === UserRelation.None;
   }
 
-  public get onMySettings(): boolean
+  public get isMySettings(): boolean
   {
-    return this.user.relationType === UserRelationType.I;
+    return this.user.relationType === UserRelation.I;
   }
 
-  public get onInFriends(): boolean
+  public get isInFriends(): boolean
   {
-    return this.user.relationType === UserRelationType.InFollower;
+    return this.user.relationType === UserRelation.InFollower;
   }
 
-  public get onOutFriends(): boolean
+  public get isOutFriends(): boolean
   {
-    return this.user.relationType === UserRelationType.OutFollower;
+    return this.user.relationType === UserRelation.OutFollower;
   }
 
-  public get onIsFriend(): boolean
+  public get isFriend(): boolean
   {
-    return this.user.relationType === UserRelationType.Friend;
+    return this.user.relationType === UserRelation.Friend;
   }
 
-  public get onIsBlocked(): boolean
+  public get isBlockedShow(): boolean
   {
-    return this.user.relationType === UserRelationType.Blocked;
+    const isNotFriend = this.user.relationType !== UserRelation.Friend;
+    const isOutBlocked = this.user.relationType !== UserRelation.OutBlocked;
+
+    return isNotFriend && isOutBlocked;
+  }
+
+  public get isUnBlockedShow(): boolean
+  {
+    return this.user.relationType === UserRelation.OutBlocked;
+  }
+
+  public get isBlockedMy(): boolean
+  {
+    return this.user.relationType === UserRelation.InBlocked;
   }
 }

@@ -1,7 +1,7 @@
 import { User } from '../models/dto-models';
 import { Observable } from 'rxjs/Observable';
 import { Injectable } from '@angular/core';
-import { FriendStatus, UserRelationType } from '../models/dto-enums';
+import { FriendStatus, UserRelation } from '../models/dto-enums';
 import { HttpService } from './http.service';
 
 @Injectable()
@@ -14,19 +14,14 @@ export class UserService
     this.httpService = httpService;
   }
 
-  public list(): Observable<User[]>
-  {
-    return this.httpService.httpGet<User[]>('api/user/list');
-  }
-
   public getUser(userId: number): Observable<User>
   {
     return this.httpService.httpGet<User>(`api/user/getUser/${userId}`);
   }
-/************************************************************************/
-  public getFriends(type: UserRelationType): Observable<User[]>
+
+  public getFriends(userRelation: UserRelation): Observable<User[]>
   {
-    return this.httpService.httpGet<User[]>(`api/user/getFriends/${type}`);
+    return this.httpService.httpGet<User[]>(`api/user/getFriends/${userRelation}`);
   }
 
   public search(searchWord: string): Observable<User[]>
@@ -34,8 +29,8 @@ export class UserService
     return this.httpService.httpGet<User[]>(`api/user/search/${searchWord}`);
   }
 
-  public changeRelation(friendId: number, status: FriendStatus): Observable<User>
+  public changeRelation(userdId: number, friendStatus: FriendStatus): Observable<User>
   {
-    return this.httpService.httpGet<User>(`api/user/changeRelation/${friendId}/${status}`);
+    return this.httpService.httpGet<User>(`api/user/changeRelation/${userdId}/${friendStatus}`);
   }
 }

@@ -1,11 +1,13 @@
-export enum UserRelationType
+export enum UserRelation
 {
-  I           = 0,
-  Friend      = 1,
-  InFollower  = 2,
-  OutFollower = 3,
-  Blocked     = 4,
-  None        = 5
+  None          = 0,
+  I             = 1,
+  Friend        = 2,
+  InFollower    = 3,
+  OutFollower   = 4,
+  InBlocked     = 5,
+  OutBlocked    = 6,
+  DoubleBlocked = 7
 }
 
 export enum FriendStatus
@@ -13,5 +15,6 @@ export enum FriendStatus
   FollowerPendingInFriend = 0,
   Follower                = 1,
   Friend                  = 2,
-  Blocked                 = 3
+  Blocked                 = 3,
+  DoubleBlocked           = 4
 }

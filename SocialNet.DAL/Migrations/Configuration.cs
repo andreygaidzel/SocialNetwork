@@ -178,7 +178,7 @@ namespace SocialNet.DAL.Migrations
                     Id = 3,
                     UserOneId = 1,
                     UserTwoId = 4,
-                    Status = FriendStatus.Friend,
+                    Status = FriendStatus.Blocked,
                     ActionUserId = 4
                 });
 

@@ -1,4 +1,4 @@
-import { UserRelationType } from './dto-enums';
+import { UserRelation } from './dto-enums';
 
 export class User
 {
@@ -7,9 +7,10 @@ export class User
   public id: number;
   public firstName: string;
   public lastName: string;
+  public fullName: string;
   public dateOfBirth: string;
   public city: string;
-  public relationType: UserRelationType;
+  public relationType: UserRelation;
 }
 
 export class Authentication

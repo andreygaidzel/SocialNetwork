@@ -3,7 +3,7 @@ import { AuthService } from '../../../services/auth.service';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/dto-models';
 import { searchDelay } from '../../../common/searchDelay';
-import { UserRelationType } from '../../../models/dto-enums';
+import { UserRelation } from '../../../models/dto-enums';
 
 @Component({
   selector: 'app-search-root',
@@ -50,7 +50,7 @@ export class SearchComponent
   {
     this.isShow = true;
 
-    this.userService.getFriends( UserRelationType.Friend)
+    this.userService.getFriends( UserRelation.Friend)
       .subscribe(result =>
       {
         this.users = result;

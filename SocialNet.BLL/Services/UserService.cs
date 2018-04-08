@@ -22,19 +22,14 @@ namespace SocialNet.BLL.Services
             UserInfo = userInfo;
         }
 
-        public List<UserDomain> List()
-        {
-            return UserRepository.List();
-        }
-
         public UserDomain GetUser(long userId)
         {
             return UserRepository.GetUser(UserInfo.MyId, userId);
         }
 
-        public List<UserDomain> GetFriends(UserRelationType type)
+        public List<UserDomain> GetFriends(UserRelation userRelation)
         {
-            return UserRepository.GetFriends(UserInfo.MyId, type);
+            return UserRepository.GetFriends(UserInfo.MyId, userRelation);
         }
 
         public List<UserDomain> Search(string searchWord)
@@ -42,15 +37,15 @@ namespace SocialNet.BLL.Services
             return UserRepository.Search(searchWord);
         }
 
-        public UserDomain ChangeRelation(long friendId, FriendStatus? status)
+        public UserDomain ChangeRelation(long userId, FriendStatus? friendStatus)
         {
-            if (status == null)
+            if (friendStatus == null)
             {
-                return UserRepository.DeleteRelation(UserInfo.MyId, friendId);
+                return UserRepository.DeleteRelation(UserInfo.MyId, userId);
             }
             else
             {
-                return UserRepository.ChangeRelation(UserInfo.MyId, friendId, status.Value);
+                return UserRepository.ChangeRelation(UserInfo.MyId, userId, friendStatus.Value);
             } 
         }
     }
