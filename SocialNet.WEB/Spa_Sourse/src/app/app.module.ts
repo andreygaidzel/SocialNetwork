@@ -23,6 +23,7 @@ import { SearchComponent } from './header/search/search.component';
 import { SearchPageComponent } from './main/search-page/search-page.component';
 import { UserGridComponent } from '../core/user-grid/user-grid.component';
 import { HttpService } from '../services/http.service';
+import { ActionsComponent} from './main/my-page/actions/actions.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { HttpService } from '../services/http.service';
     LoginComponent,
     SearchComponent,
     SearchPageComponent,
-    UserGridComponent
+    UserGridComponent,
+    ActionsComponent
   ],
   imports: [
     BrowserModule,

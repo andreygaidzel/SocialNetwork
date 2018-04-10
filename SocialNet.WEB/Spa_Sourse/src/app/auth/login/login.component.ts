@@ -37,13 +37,13 @@ export class LoginComponent
         {
           const user = new Authentication();
           user.id = result;
-          user.login = this.email;
+          user.email = this.email;
           this.authService.add(user);
           this.router.navigate(['my-page']);
         }
         else
         {
-          alert('Неверные Email или Пароль!');
+          alert('Неверные email или Пароль!');
         }
       });
   }

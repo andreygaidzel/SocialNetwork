@@ -1,0 +1,23 @@
+<div class="action">
+  <button class="button" *ngIf="isMessageShow">Написать сообщение</button>
+  <button class="button" *ngIf="isFriendAddShow" (click)="onSendRelation(friendStatus.FollowerPendingInFriend)">Добавить в друзья</button>
+  <button class="button" *ngIf="isMySettings">Редактировать</button>
+  <button class="button" *ngIf="isInFriends" (click)="onSendRelation(friendStatus.Friend)">Принять</button>
+  <!--status-->
+  <div class="status-list" *ngIf="!isMySettings" (mouseleave)="onCloseDropDown()">
+    <div class="status"  (click)="onDropDownShow()">
+      <span class="text" *ngIf="isInFriends">{{user.firstName}} предлагает дружбу</span>
+      <span class="text" *ngIf="isOutFriends">Вы отравили запрос</span>
+      <span class="text" *ngIf="isFriend">{{user.firstName}} ваш друг</span>
+      <span class="text" *ngIf="isBlockedMy">{{user.firstName}} вас заблокировал</span>
+      <span class="text" *ngIf="isActions">Действия</span>
+      <div class="dropdown"></div>
+    </div>
+    <div class="drop-elements" *ngIf="isDropDownShow">
+      <div class="drop-elem" *ngIf="isOutFriends" (click)="onSendRelation(null); onCloseDropDownNow()">Отменить запрос</div>
+      <div class="drop-elem" *ngIf="isFriend" (click)="onSendRelation(friendStatus.Follower); onCloseDropDownNow()">Удалить из друзей</div>
+      <div class="drop-elem" *ngIf="isUnBlockedShow" (click)="onSendRelation(null); onCloseDropDownNow()">Разблокировать</div>
+      <div class="drop-elem" *ngIf="isBlockedShow" (click)="onSendRelation(friendStatus.Blocked); onCloseDropDownNow()">Заблокировать</div>
+    </div>
+  </div>
+</div>

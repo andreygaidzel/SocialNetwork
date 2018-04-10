@@ -45,7 +45,7 @@ namespace SocialNet.DAL.Repositories
 
             var userDomain = Mapper.Map<UserDomain>(user);
 
-            userDomain.Relation = GetUserRelation(myId, userId);
+            userDomain.RelationType = GetUserRelation(myId, userId);
 
             return userDomain;
         }
@@ -74,7 +74,7 @@ namespace SocialNet.DAL.Repositories
                             userRelation = UserRelation.Friend;
                             break;
                         case FriendStatus.Blocked when friendShip.ActionUserId == myId:
-                            userRelation = UserRelation.OutBlocked ;
+                            userRelation = UserRelation.OutBlocked;
                             break;
                         case FriendStatus.Blocked when friendShip.ActionUserId == userId:
                             userRelation = UserRelation.InBlocked;
@@ -86,6 +86,9 @@ namespace SocialNet.DAL.Repositories
                         case FriendStatus.FollowerPendingInFriend when friendShip.ActionUserId == userId:
                         case FriendStatus.Follower when friendShip.ActionUserId == userId:
                             userRelation = UserRelation.InFollower;
+                            break;
+                        case FriendStatus.DoubleBlocked:
+                            userRelation = UserRelation.DoubleBlocked;
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
@@ -142,12 +145,19 @@ namespace SocialNet.DAL.Repositories
             
             if (friendShip != null)
             {
-                friendShip.Status = friendStatus;
-                friendShip.ActionUserId = myId;
-
-                if (friendStatus == FriendStatus.Follower)
+                switch (friendStatus)
                 {
-                    friendShip.ActionUserId = userId;
+                    case FriendStatus.Follower:
+                        friendShip.Status = friendStatus;
+                        friendShip.ActionUserId = userId;
+                        break;
+                    case FriendStatus.Blocked when friendShip.Status == FriendStatus.Blocked && friendShip.ActionUserId != myId:
+                        friendShip.Status = FriendStatus.DoubleBlocked;
+                        break;
+                    default:
+                        friendShip.Status = friendStatus;
+                        friendShip.ActionUserId = myId;
+                        break;
                 }
             }
             else
@@ -172,7 +182,16 @@ namespace SocialNet.DAL.Repositories
         {
             var friendShip = GetFriendship(myId, userId);
 
-            Context.Friendships.Remove(friendShip);
+            if (friendShip.Status == FriendStatus.DoubleBlocked)
+            {
+                friendShip.Status = FriendStatus.Blocked;
+                friendShip.ActionUserId = userId;
+            }
+            else
+            {
+                Context.Friendships.Remove(friendShip);
+            }
+            
             Context.SaveChanges();
 
             var user = GetUser(myId, userId);

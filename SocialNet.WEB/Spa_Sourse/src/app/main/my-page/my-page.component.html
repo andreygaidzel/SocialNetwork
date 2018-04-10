@@ -1,22 +1,7 @@
 <div class="my-page" *ngIf="user">
   <div class="left">
     <div class="photo"></div>
-    <button class="button" *ngIf="isMessageShow">Написать сообщение</button>
-    <button class="button" *ngIf="isFriendAddShow" (click)="onSendRelation(friendStatus.FollowerPendingInFriend)">Добавить в друзья</button>
-    <button class="button" *ngIf="isMySettings">Редактировать</button>
-    <button class="button" *ngIf="isInFriends" (click)="onSendRelation(friendStatus.Friend)">Принять</button>
-    <button class="button" *ngIf="isOutFriends" (click)="onSendRelation(null)">Отменить запрос</button>
-
-    <div class="status" *ngIf="isOutFriends">Вы отравили запрос</div>
-    <div class="status" *ngIf="isInFriends">{{user.firstName}} предлагает дружбу</div>
-    <div class="status" *ngIf="isFriend">
-      <span>{{user.firstName}} ваш друг</span>
-      <button (click)="onSendRelation(friendStatus.Follower)">Удалить</button>
-    </div>
-    <div class="status" *ngIf="isBlockedMy">{{user.firstName}} вас заблокировал</div>
-    <button *ngIf="isBlockedShow" (click)="onSendRelation(friendStatus.Blocked)">Заблокировать</button>
-    <div class="status" *ngIf="isUnBlockedShow">Пользователь заблокирован</div>
-    <button *ngIf="isUnBlockedShow" (click)="onSendRelation(null)">Разблокировать</button>
+    <app-actions-root></app-actions-root>
   </div>
   <div class="right">
     <div class="name">{{user.fullName}}</div>

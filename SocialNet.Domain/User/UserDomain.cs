@@ -17,7 +17,7 @@ namespace SocialNet.Domain.User
         public string FullName => $"{FirstName} {LastName}";
         public DateTime DateOfBirth { get; set; }
         public string City { get; set; }
-        public UserRelation Relation { get; set; }
+        public UserRelation RelationType { get; set; }
         public DateTime CreateData { get; set; }
     }
 }

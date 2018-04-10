@@ -2,7 +2,7 @@ import { UserRelation } from './dto-enums';
 
 export class User
 {
-  public Email: string;
+  public email: string;
   public password: string;
   public id: number;
   public firstName: string;
@@ -16,6 +16,6 @@ export class User
 export class Authentication
 {
   public id: number;
-  public login: string;
+  public email: string;
 }
 

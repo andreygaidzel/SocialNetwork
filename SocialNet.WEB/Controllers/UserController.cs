@@ -28,7 +28,7 @@ namespace SocialNet.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("getFriends/{type}")]
+        [Route("getFriends/{userRelation}")]
         public List<UserDomain> GetFriends(UserRelation userRelation)
         {
             return UserService.GetFriends(userRelation);
@@ -42,7 +42,7 @@ namespace SocialNet.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("changeRelation/{friendId}/{status}")]
+        [Route("changeRelation/{userId}/{friendStatus}")]
         public UserDomain ChangeRelation(long userId, FriendStatus? friendStatus)
         {
             return UserService.ChangeRelation(userId, friendStatus);

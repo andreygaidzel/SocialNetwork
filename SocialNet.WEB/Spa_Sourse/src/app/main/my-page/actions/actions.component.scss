@@ -1,0 +1,64 @@
+.action {
+
+  .button {
+    width: 200px;
+    height: 35px;
+    margin-top: 10px;
+    background: #759bff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: -webkit-center;
+    padding-top: 2px;
+    box-shadow: 0 5px 8px grey;
+    color: whitesmoke;
+  }
+
+  .button:hover {
+    background: rgba(123, 149, 255, 0.85);
+  }
+
+  .status-list {
+    box-shadow: 0 5px 8px grey;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+
+    .status {
+      width: 195px;
+      background: #d3d5eb;
+      text-align: -webkit-center;
+      padding: 2px 5px 2px 0;
+      display: flex;
+
+      .text {
+        flex: 1;
+        color: #6b6566;
+      }
+
+      .dropdown {
+        width: 15px;
+        height: 18px;
+        background: no-repeat 0 70% url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDMxNC41IDMxNC41IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMTQuNSAzMTQuNTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0zMTQuNSw5MC41YzAsNi0yLDEzLTcsMThsLTEzMywxMzNjLTUsNS0xMCw3LTE3LDdzLTEyLTItMTctN2wtMTMzLTEzM2MtMTAtMTAtMTAtMjUsMC0zNSAgICBzMjQtMTAsMzQsMGwxMTYsMTE2bDExNi0xMTZjMTAtMTAsMjQtMTAsMzQsMEMzMTIuNSw3OC41LDMxNC41LDg0LjUsMzE0LjUsOTAuNXoiIGZpbGw9IiM2ZDZmNzAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+        background-size: 15px 15px;
+      }
+    }
+
+    .status:hover {
+      background: #c3c5db;
+    }
+
+    .drop-elements {
+
+      .drop-elem {
+        margin-top: 3px;
+        background: white;
+        text-align: -webkit-center;
+        padding: 2px 0 2px 0;
+      }
+
+      .drop-elem:hover {
+        background: whitesmoke;
+      }
+    }
+  }
+}

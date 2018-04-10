@@ -29,8 +29,8 @@ export class UserService
     return this.httpService.httpGet<User[]>(`api/user/search/${searchWord}`);
   }
 
-  public changeRelation(userdId: number, friendStatus: FriendStatus): Observable<User>
+  public changeRelation(userId: number, friendStatus: FriendStatus): Observable<User>
   {
-    return this.httpService.httpGet<User>(`api/user/changeRelation/${userdId}/${friendStatus}`);
+    return this.httpService.httpGet<User>(`api/user/changeRelation/${userId}/${friendStatus}`);
   }
 }
