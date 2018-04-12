@@ -39,7 +39,7 @@ export class LoginComponent
           user.id = result;
           user.email = this.email;
           this.authService.add(user);
-          this.router.navigate(['my-page']);
+          this.router.navigate(['']);
         }
         else
         {

@@ -9,10 +9,46 @@
     box-shadow: 0 0 1px grey;
     padding: 10px;
 
-    .photo {
+    .avatar-block {
       width: 200px;
       height: 250px;
-      background: #6b6566;
+      position: relative;
+
+      .avatar {
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        background: white no-repeat 50% 50% url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQ4Ny42NzggNDg3LjY3OCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDg3LjY3OCA0ODcuNjc4OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjEyOHB4IiBoZWlnaHQ9IjEyOHB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMzc3Ljk5NiwyODIuMzQ3Yy01Ni4yMDEtMTguMzU3LTc5LjU2My00MS4xODUtNzkuNTYzLTQxLjE4NWwtMS44ODEsMS43OTMgICAgYy0xNi42OSwxNS43MDktMzUuMTQ5LDI0Ljk0NC01MS45NjUsMjQuOTQ0SDI0M2MtMTYuODE1LDAtMzUuMjc0LTkuMjM1LTUxLjk2NC0yNC45NDRsLTEuODgyLTEuNzkzICAgIGMwLDAtMjMuMzYsMjIuODI3LTc5LjU2Miw0MS4xODVjLTgyLjk2NCwzMC45OTItNTguMDUzLDE1Ny4xMTktNTguMDc3LDE1OC4wOTZjMi42MTMsMTQuMDQ3LDQuMTM2LDE4Ljg3NSw1LjQ2MywxOS40MTcgICAgYzgzLjMxNCwzNy4wOTEsMjkwLjMxOSwzNy4wOTEsMzczLjYzNCwwYzEuMzI3LTAuNTQyLDIuODUtNS4zNyw1LjQ2My0xOS40MTdDNDM2LjA1MSw0MzkuNDY2LDQ2MS4yOTUsMzEzLjg0LDM3Ny45OTYsMjgyLjM0N3oiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMzMwLjkyNCwxMjEuNDQxbC0wLjY5Ni0wLjc1NWMtNC42NjgtNC4yNzQtNC4zMDMtNC4wMjktNC4zMDMtNC4wMjlzOC4xNDItNDEuMDgzLDEuNjEzLTYwLjUxMSAgICBjLTEwLjI1LTMxLjAyNy03MS40NzUtNTEuODIyLTgzLjc1NS01NC4yMzljMC4wMDItMC4wMjMtNy40NjktMS41MTgtNy45NDYtMS41MjFjMCwwLTkuNjU5LTEuOTUzLTIwLjg1NCwyLjkzICAgIGMtNy4yOTEsMi44MDUtNDUuNDA4LDIwLjA5LTU2LjIyNyw1Mi44M2MtNi41MjgsMTkuNDI4LDEuNjE0LDYwLjUxMSwxLjYxNCw2MC41MTFzMC4zNjUtMC4yNDUtNC4zMDQsNC4wMjlsLTAuNjk1LDAuNzU1ICAgIGMtMy4xNTgsMy41ODYtMi4zNzgsMTQuODA2LDEuMDc0LDI2LjQ3OWMzLjEyOCwxMS42OTUsNy4yMDUsMTQuODM4LDguMTgyLDE3LjU3N2M5LjkwMyw0Ni40OTcsNDQuMzM4LDg2LjE5Nyw3OS40MjksODYuMTk3ICAgIHM2Ny43MDctMzkuNyw3Ny42MS04Ni4xOTdjMC45NzgtMi43MzgsNS4wNTUtNS44ODIsOC4xODMtMTcuNTc3QzMzMy4zMDEsMTM2LjI0NiwzMzQuMTcyLDEyNC4yNTYsMzMwLjkyNCwxMjEuNDQxeiIgZmlsbD0iIzAwMDAwMCIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=');
+        background-size: 200px 250px;
+      }
+
+      .remove {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 18px;
+        height: 18px;
+        cursor: pointer;
+        background: #000000 no-repeat 50% 50% url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDM0MS43NTEgMzQxLjc1MSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzQxLjc1MSAzNDEuNzUxOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnPgoJPGc+CgkJCgkJCTxyZWN0IHg9Ii00OS40MTUiIHk9IjE0OS41NDIiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MiAtMC43MDcgMC43MDcgMC43MDcyIC03MC43ODY4IDE3MC44MzI2KSIgd2lkdGg9IjQ0MC41MjgiIGhlaWdodD0iNDIuNjY3IiBmaWxsPSIjOWM5NzljIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQkKCQkJPHJlY3QgeD0iMTQ5LjU2OSIgeT0iLTQ5LjM4OCIgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDcgLTAuNzA3MiAwLjcwNzIgMC43MDcgLTcwLjc3MTIgMTcwLjkxOSkiIHdpZHRoPSI0Mi42NjciIGhlaWdodD0iNDQwLjUyOCIgZmlsbD0iIzljOTc5YyIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=');
+        background-size: 12px 12px;
+      }
+
+      .avatar-actions {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 23px;
+        cursor: pointer;
+        background: rgba(19, 19, 19, 0.54);
+        color: #ced0d1;
+        text-align: -webkit-center;
+        padding-top: 4px;
+      }
+
+      .upload {
+        visibility: hidden;
+      }
     }
   }
 

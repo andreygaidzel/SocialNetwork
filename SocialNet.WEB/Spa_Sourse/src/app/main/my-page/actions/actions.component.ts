@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { FriendStatus, UserRelation } from '../../../../models/dto-enums';
 import { User } from '../../../../models/dto-models';
 import { UserService } from '../../../../services/user.service';
@@ -12,13 +12,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ActionsComponent
 {
+  private _user = new User();
+
+  @Input()
+  public set user(user: User)
+  {
+    this._user = user;
+  }
+
+  public get user(): User
+  {
+    return this._user;
+  }
+
   private authService: AuthService;
   private userService: UserService;
   private activateRoute: ActivatedRoute;
-  private router: Router;
 
+  private router: Router;
   public isDropDownShow = false;
-  public user = new User();
   public userId: number;
   public friendStatus = FriendStatus;
 
@@ -29,11 +41,6 @@ export class ActionsComponent
     this.activateRoute = activateRoute;
     this.router = router;
   }
-  public getUser(user: User): void
-  {
-    this.user = user;
-    console.log('actionUeser', user);
-  }
 
   private onSendRelation(friendStatus: FriendStatus): void
   {
@@ -41,7 +48,7 @@ export class ActionsComponent
       .subscribe(user =>
       {
         this.user = user;
-        console.log('userCom', user);
+       // console.log('userCom', user);
       });
   }
 

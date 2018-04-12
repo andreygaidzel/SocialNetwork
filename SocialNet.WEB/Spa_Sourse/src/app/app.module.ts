@@ -24,7 +24,7 @@ import { SearchPageComponent } from './main/search-page/search-page.component';
 import { UserGridComponent } from '../core/user-grid/user-grid.component';
 import { HttpService } from '../services/http.service';
 import { ActionsComponent} from './main/my-page/actions/actions.component';
-
+import {ImageService} from "../services/image.service";
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { ActionsComponent} from './main/my-page/actions/actions.component';
     HttpClientModule,
     ROUTING
   ],
-  providers: [UserService, LoginService, AuthService, AuthGuard, HttpService],
+  providers: [UserService, LoginService, AuthService, AuthGuard, HttpService, ImageService],
   bootstrap: [AppComponent]
 })
 export class AppModule

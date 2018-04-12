@@ -1,7 +1,12 @@
 <div class="my-page" *ngIf="user">
   <div class="left">
-    <div class="photo"></div>
-    <app-actions-root></app-actions-root>
+    <div class="avatar-block" (mouseenter)="showSettings()" (mouseleave)="closeSettings()">
+      <div class="avatar"></div>
+      <div class="remove" *ngIf="myPage"></div>
+      <div class="avatar-actions" *ngIf="myPage" (click)="fileInput.click()">Обновить фотографию</div>
+      <input class="upload" type="file" (change)="onUpload(fileInput?.files[0])" #fileInput/>
+    </div>
+    <app-actions-root [user]="user"></app-actions-root>
   </div>
   <div class="right">
     <div class="name">{{user.fullName}}</div>

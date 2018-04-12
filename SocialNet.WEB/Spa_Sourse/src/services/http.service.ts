@@ -6,7 +6,7 @@ import { AuthService } from './auth.service';
 export class HttpService
 {
   private authService: AuthService;
-  private http: HttpClient
+  private http: HttpClient;
 
   public constructor(http: HttpClient, authService: AuthService)
   {
@@ -14,10 +14,17 @@ export class HttpService
     this.http = http;
   }
 
-  public httpGet<T>(url: string)
+  public get<T>(url: string)
   {
     const myId = this.authService.authentication.id;
     const headers = new HttpHeaders({'myId': `${myId}`});
     return this.http.get<T>(url, {headers: headers});
+  }
+
+  public post<T>(url: string, param: any)
+  {
+    const myId = this.authService.authentication.id;
+    const headers = new HttpHeaders({'myId': `${myId}`});
+    return this.http.post<T>(url, param, {headers: headers});
   }
 }

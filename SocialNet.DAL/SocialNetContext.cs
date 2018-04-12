@@ -17,19 +17,20 @@ namespace SocialNet.DAL
 
         public DbSet<User> Users { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
+        public DbSet<Avatar> Avatar { get; set; }
 
-      /*  protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<User>()
-                .HasMany(x => x.Friends)
-                .WithRequired()
-                .HasForeignKey(x => x.UserId);
+        /*  protected override void OnModelCreating(DbModelBuilder modelBuilder)
+          {
+              modelBuilder.Entity<User>()
+                  .HasMany(x => x.Friends)
+                  .WithRequired()
+                  .HasForeignKey(x => x.UserId);
 
-            modelBuilder.Entity<Friendship>()
-                .HasRequired(x => x.UserFriend)
-                .WithMany()
-                .HasForeignKey(x => x.UserFriendId)
-                .WillCascadeOnDelete(false);
-        }*/
+              modelBuilder.Entity<Friendship>()
+                  .HasRequired(x => x.UserFriend)
+                  .WithMany()
+                  .HasForeignKey(x => x.UserFriendId)
+                  .WillCascadeOnDelete(false);
+          }*/
     }
 }

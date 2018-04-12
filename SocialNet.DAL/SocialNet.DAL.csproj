@@ -51,13 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Mapping\AvatarProfile.cs" />
     <Compile Include="Mapping\UserProfile.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Base\EntityBase.cs" />
     <Compile Include="Models\Friendship.cs" />
+    <Compile Include="Models\Avatar.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Repositories\AccountRepository.cs" />
     <Compile Include="Repositories\Base\BaseRepository.cs" />
+    <Compile Include="Repositories\ImageRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="SocialNetContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

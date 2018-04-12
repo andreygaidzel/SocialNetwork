@@ -16,21 +16,21 @@ export class UserService
 
   public getUser(userId: number): Observable<User>
   {
-    return this.httpService.httpGet<User>(`api/user/getUser/${userId}`);
+    return this.httpService.get<User>(`api/user/getUser/${userId}`);
   }
 
   public getFriends(userRelation: UserRelation): Observable<User[]>
   {
-    return this.httpService.httpGet<User[]>(`api/user/getFriends/${userRelation}`);
+    return this.httpService.get<User[]>(`api/user/getFriends/${userRelation}`);
   }
 
   public search(searchWord: string): Observable<User[]>
   {
-    return this.httpService.httpGet<User[]>(`api/user/search/${searchWord}`);
+    return this.httpService.get<User[]>(`api/user/search/${searchWord}`);
   }
 
   public changeRelation(userId: number, friendStatus: FriendStatus): Observable<User>
   {
-    return this.httpService.httpGet<User>(`api/user/changeRelation/${userId}/${friendStatus}`);
+    return this.httpService.get<User>(`api/user/changeRelation/${userId}/${friendStatus}`);
   }
 }

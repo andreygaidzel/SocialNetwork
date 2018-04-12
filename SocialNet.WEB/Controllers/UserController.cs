@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 using SocialNet.Domain.Enums;
@@ -46,6 +48,14 @@ namespace SocialNet.WEB.Controllers
         public UserDomain ChangeRelation(long userId, FriendStatus? friendStatus)
         {
             return UserService.ChangeRelation(userId, friendStatus);
+        }
+
+        [HttpPost]
+        [Route("lo")]
+        public long Login([FromBody]Stream file)
+        {
+            return 1;
+
         }
     }
 }

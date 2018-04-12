@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\FriendStatus.cs" />
+    <Compile Include="Enums\ImageType.cs" />
     <Compile Include="Enums\UserRelation.cs" />
+    <Compile Include="User\AvatarDomain.cs" />
     <Compile Include="User\UserDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
