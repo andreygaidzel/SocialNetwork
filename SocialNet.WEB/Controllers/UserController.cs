@@ -49,13 +49,5 @@ namespace SocialNet.WEB.Controllers
         {
             return UserService.ChangeRelation(userId, friendStatus);
         }
-
-        [HttpPost]
-        [Route("lo")]
-        public long Login([FromBody]Stream file)
-        {
-            return 1;
-
-        }
     }
 }

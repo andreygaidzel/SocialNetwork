@@ -14,8 +14,10 @@ namespace SocialNet.Configuration
         {
             container.Register<IUserRepository, UserRepository>();
             container.Register<IAccountRepository, AccountRepository>();
-            container.Register<IAccountService, AccountService>();
+            container.Register<IImageRepository, ImageRepository>();
+
             container.Register<IUserService, UserService>();
+            container.Register<IAccountService, AccountService>();
             container.Register<IImageService, ImageService>();
 
             container.Register<SocialNetContext>(new PerScopeLifetime());

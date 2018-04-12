@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNet.BLL", "SocialNet.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNet.Security", "SocialNet.Security\SocialNet.Security.csproj", "{1FA8219C-4926-463A-A52B-5C24F031B64D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocialNet.Common", "SocialNet.Comon\SocialNet.Common.csproj", "{1B01E8A5-A2E8-4F10-9B11-AC03BC2423B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{1FA8219C-4926-463A-A52B-5C24F031B64D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1FA8219C-4926-463A-A52B-5C24F031B64D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FA8219C-4926-463A-A52B-5C24F031B64D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B01E8A5-A2E8-4F10-9B11-AC03BC2423B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B01E8A5-A2E8-4F10-9B11-AC03BC2423B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B01E8A5-A2E8-4F10-9B11-AC03BC2423B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B01E8A5-A2E8-4F10-9B11-AC03BC2423B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

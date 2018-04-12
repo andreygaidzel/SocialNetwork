@@ -3,7 +3,7 @@ import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/dto-models';
 import { AuthService } from '../../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import {ImageService} from "../../../services/image.service";
+import {ImageService} from '../../../services/image.service';
 
 @Component({
   selector: 'app-my-page-root',
@@ -23,6 +23,7 @@ export class MyPageComponent implements OnInit
   public myPage = false;
   public myId: number;
   public image: string;
+  public path: string;
 
   public constructor(userService: UserService, authService: AuthService,
                      activateRoute: ActivatedRoute, router: Router, imageService: ImageService)
@@ -75,9 +76,10 @@ export class MyPageComponent implements OnInit
     }
   }
 
-  public onUpload(file: File)
+  public onUpload(event: any)
   {
-    console.log('file', file);
+    const file = event.srcElement.files[0];
+    event.srcElement.value = '';
     const formData = new FormData();
     formData.append('file', file, file.name);
 
@@ -85,6 +87,7 @@ export class MyPageComponent implements OnInit
       .subscribe(path =>
       {
         console.log(path);
+        this.path = path;
       });
   }
 }

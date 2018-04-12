@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using SocialNet.WEB.Helpers;
 using SocialNET.BLL.Abstract.Services;
 
 namespace SocialNet.WEB.Controllers
@@ -23,26 +25,35 @@ namespace SocialNet.WEB.Controllers
         [Route("addavatar")]
         public string AddAvatar()
         {
-            HttpResponseMessage result = null;
-            var httpRequest = HttpContext.Current.Request;
+            var test1 = Directory.GetCurrentDirectory();
+            HttpContext.Current.Server.MapPath("z");
 
-            if (httpRequest.Files.Count > 0)
+            var filesList = FilesHelper.Get();
+
+            //  HttpResponseMessage result = null;
+            // var httpRequest = HttpContext.Current.Request;
+
+            var newName = ImageService.AddAvatar(filesList);
+
+          /*  if (filesList.Count > 0)
             {
-                var docfiles = new List<string>();
-                foreach (string file in httpRequest.Files)
+                //  var docfiles = new List<string>();
+                foreach (string file in filesList)
                 {
                     var postedFile = httpRequest.Files[file];
-                    var filePath = HttpContext.Current.Server.MapPath("~/Images/" + postedFile.FileName);
+                    var filePath = HttpContext.Current.Server.MapPath("~" + newName);
                     postedFile.SaveAs(filePath);
-                    docfiles.Add(filePath);
+                    // docfiles.Add(filePath);
                 }
-                result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
+
+                // result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
             }
-            else
-            {
-                result = Request.CreateResponse(HttpStatusCode.BadRequest);
-            }
-            return "tt";
+            /* else
+             {
+                 result = Request.CreateResponse(HttpStatusCode.BadRequest);
+             }*/
+
+            return newName;
         }
     }
 }

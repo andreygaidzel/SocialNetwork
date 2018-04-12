@@ -111,6 +111,10 @@
       <Project>{c9be885a-66ad-45d8-bb05-595b5241e5d9}</Project>
       <Name>SocialNet.BLL.Abstract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SocialNet.Comon\SocialNet.Common.csproj">
+      <Project>{1b01e8a5-a2e8-4f10-9b11-ac03bc2423b2}</Project>
+      <Name>SocialNet.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SocialNet.DAL.Abstract\SocialNet.DAL.Abstract.csproj">
       <Project>{c8cb3276-70da-4fbf-bf0f-163ef74898c7}</Project>
       <Name>SocialNet.DAL.Abstract</Name>
