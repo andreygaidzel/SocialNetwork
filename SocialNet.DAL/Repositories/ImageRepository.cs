@@ -5,9 +5,11 @@ using System.Linq;
 using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
+using AutoMapper;
 using SocialNet.DAL.Abstract.Repositories;
 using SocialNet.DAL.Models;
 using SocialNet.DAL.Repositories.Base;
+using SocialNet.Domain.User;
 
 namespace SocialNet.DAL.Repositories
 {
@@ -17,14 +19,11 @@ namespace SocialNet.DAL.Repositories
         {
         }
 
-        public string AddAvatar(long myId)
+        public AvatarDomain AddAvatar(long myId, string name)
         {
-            var number = Context.Avatar.Count();
-            var newPath = "/Images/User_" + myId + "_Avatar_" + number + ".jpg";
-
             var avatar = new Avatar
             {
-                Path = newPath,
+                Path = name,
                 Active = true,
                 UserId = myId
             };
@@ -32,7 +31,7 @@ namespace SocialNet.DAL.Repositories
             Context.Avatar.Add(avatar);
             Context.SaveChanges();
 
-            return newPath;
+            return Mapper.Map<AvatarDomain>(avatar);
         }
 
         public void SaveStream(string path, List<Stream> filesList)

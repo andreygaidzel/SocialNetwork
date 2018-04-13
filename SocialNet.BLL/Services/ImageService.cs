@@ -9,6 +9,7 @@ using SocialNET.BLL.Abstract.Services;
 using System.Web;
 using System.Web.Http;
 using SocialNet.Comon;
+using SocialNet.Domain.User;
 using SocialNet.Security;
 
 namespace SocialNet.BLL.Services
@@ -24,13 +25,16 @@ namespace SocialNet.BLL.Services
             UserInfo = userInfo;
         }
 
-        public string AddAvatar(List<Stream> filesList)
+        public AvatarDomain AddAvatar(List<Stream> filesList)
         {
-            var dir = Directory.GetCurrentDirectory();
-            string startupPath = GetPath.Path() + "\\hui.jpg";
-            ImageRepository.SaveStream(startupPath, filesList);
-            return ImageRepository.AddAvatar(UserInfo.MyId);
-        }
+            var random = Guid.NewGuid().ToString("n");
+            var imageName = "User_" + UserInfo.MyId + "_IMG_" + random + ".jpg";
+            var startupPath = GetPath.BaseDirectory() + "Images\\" + imageName;
 
+            ImageRepository.SaveStream(startupPath, filesList);
+
+           // var newAvatar = "http://localhost:60415/Images/" + imageName;
+            return ImageRepository.AddAvatar(UserInfo.MyId, imageName);
+        }
     }
 }

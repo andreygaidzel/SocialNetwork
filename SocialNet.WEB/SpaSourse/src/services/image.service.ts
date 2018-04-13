@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpService} from './http.service';
 import {Observable} from 'rxjs/Observable';
+import { Avatar } from '../models/dto-models';
 
 @Injectable()
 export class ImageService {
@@ -10,8 +11,8 @@ export class ImageService {
     this.httpService = httpService;
   }
 
-  public addAvatar(file: FormData): Observable<string>
+  public addAvatar(file: FormData): Observable<Avatar>
   {
-    return this.httpService.post<string>(`api/image/addavatar/`, file);
+    return this.httpService.post<Avatar>(`api/image/addavatar/`, file);
   }
 }

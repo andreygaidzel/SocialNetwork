@@ -84,10 +84,10 @@ export class MyPageComponent implements OnInit
     formData.append('file', file, file.name);
 
     this.imageService.addAvatar(formData)
-      .subscribe(path =>
+      .subscribe(avatar =>
       {
-        console.log(path);
-        this.path = path;
+        console.log(avatar);
+       this.path = avatar.fullPath;
       });
   }
 }

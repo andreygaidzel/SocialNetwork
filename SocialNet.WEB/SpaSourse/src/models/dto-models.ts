@@ -19,3 +19,12 @@ export class Authentication
   public email: string;
 }
 
+export class Avatar
+{
+    public id: number;
+    public path: string;
+    public active: boolean;
+    public userId: number;
+    public fullPath: string;
+}
+

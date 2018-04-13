@@ -15,6 +15,7 @@ namespace SocialNet.Configuration
             Mapper.Initialize(x =>
             {
                 x.AddProfile<UserProfile>();
+                x.AddProfile<AvatarProfile>();
             });
         }
     }

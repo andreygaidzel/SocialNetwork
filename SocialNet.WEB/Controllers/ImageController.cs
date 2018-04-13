@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web;
 using System.Web.Http;
+using SocialNet.Domain.User;
 using SocialNet.WEB.Helpers;
 using SocialNET.BLL.Abstract.Services;
 
@@ -23,37 +24,38 @@ namespace SocialNet.WEB.Controllers
 
         [HttpPost]
         [Route("addavatar")]
-        public string AddAvatar()
+        public AvatarDomain AddAvatar()
         {
             var test1 = Directory.GetCurrentDirectory();
             HttpContext.Current.Server.MapPath("z");
 
             var filesList = FilesHelper.Get();
+            var host = HttpContext.Current.Request.Url.Authority;
 
             //  HttpResponseMessage result = null;
             // var httpRequest = HttpContext.Current.Request;
 
-            var newName = ImageService.AddAvatar(filesList);
+            // var newName = ImageService.AddAvatar(filesList);
 
-          /*  if (filesList.Count > 0)
-            {
-                //  var docfiles = new List<string>();
-                foreach (string file in filesList)
-                {
-                    var postedFile = httpRequest.Files[file];
-                    var filePath = HttpContext.Current.Server.MapPath("~" + newName);
-                    postedFile.SaveAs(filePath);
-                    // docfiles.Add(filePath);
-                }
+            /*  if (filesList.Count > 0)
+              {
+                  //  var docfiles = new List<string>();
+                  foreach (string file in filesList)
+                  {
+                      var postedFile = httpRequest.Files[file];
+                      var filePath = HttpContext.Current.Server.MapPath("~" + newName);
+                      postedFile.SaveAs(filePath);
+                      // docfiles.Add(filePath);
+                  }
 
-                // result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
-            }
-            /* else
-             {
-                 result = Request.CreateResponse(HttpStatusCode.BadRequest);
-             }*/
+                  // result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
+              }
+              /* else
+               {
+                   result = Request.CreateResponse(HttpStatusCode.BadRequest);
+               }*/
 
-            return newName;
+            return ImageService.AddAvatar(filesList);
         }
     }
 }
