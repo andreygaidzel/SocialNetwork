@@ -11,5 +11,6 @@ namespace SocialNET.BLL.Abstract.Services
     public interface IImageService
     {
         AvatarDomain AddAvatar(List<Stream> filesList);
+        AvatarDomain RemoveAvatar();
     }
 }

@@ -36,5 +36,10 @@ namespace SocialNet.BLL.Services
            // var newAvatar = "http://localhost:60415/Images/" + imageName;
             return ImageRepository.AddAvatar(UserInfo.MyId, imageName);
         }
+
+        public AvatarDomain RemoveAvatar()
+        {
+            return ImageRepository.RemoveAvatar(UserInfo.MyId);
+        }
     }
 }

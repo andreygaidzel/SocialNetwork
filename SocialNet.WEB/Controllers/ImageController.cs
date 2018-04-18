@@ -30,32 +30,15 @@ namespace SocialNet.WEB.Controllers
             HttpContext.Current.Server.MapPath("z");
 
             var filesList = FilesHelper.Get();
-            
-
-            //  HttpResponseMessage result = null;
-            // var httpRequest = HttpContext.Current.Request;
-
-            // var newName = ImageService.AddAvatar(filesList);
-
-            /*  if (filesList.Count > 0)
-              {
-                  //  var docfiles = new List<string>();
-                  foreach (string file in filesList)
-                  {
-                      var postedFile = httpRequest.Files[file];
-                      var filePath = HttpContext.Current.Server.MapPath("~" + newName);
-                      postedFile.SaveAs(filePath);
-                      // docfiles.Add(filePath);
-                  }
-
-                  // result = Request.CreateResponse(HttpStatusCode.Created, docfiles);
-              }
-              /* else
-               {
-                   result = Request.CreateResponse(HttpStatusCode.BadRequest);
-               }*/
 
             return ImageService.AddAvatar(filesList);
+        }
+
+        [HttpGet]
+        [Route("removeavatar")]
+        public AvatarDomain RemoveAvatar()
+        {
+            return ImageService.RemoveAvatar();
         }
     }
 }

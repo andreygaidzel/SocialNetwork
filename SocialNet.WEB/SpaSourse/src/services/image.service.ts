@@ -15,4 +15,9 @@ export class ImageService {
   {
     return this.httpService.post<Avatar>(`api/image/addavatar/`, file);
   }
+
+    public removeAvatar(): Observable<Avatar>
+    {
+        return this.httpService.get<Avatar>(`api/image/removeavatar/`);
+    }
 }

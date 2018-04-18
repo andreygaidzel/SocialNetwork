@@ -31,6 +31,7 @@
                 cursor: pointer;
                 background: #000000 no-repeat 50% 50% url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDM0MS43NTEgMzQxLjc1MSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMzQxLjc1MSAzNDEuNzUxOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnPgoJPGc+CgkJCgkJCTxyZWN0IHg9Ii00OS40MTUiIHk9IjE0OS41NDIiIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA3MiAtMC43MDcgMC43MDcgMC43MDcyIC03MC43ODY4IDE3MC44MzI2KSIgd2lkdGg9IjQ0MC41MjgiIGhlaWdodD0iNDIuNjY3IiBmaWxsPSIjOWM5NzljIi8+Cgk8L2c+CjwvZz4KPGc+Cgk8Zz4KCQkKCQkJPHJlY3QgeD0iMTQ5LjU2OSIgeT0iLTQ5LjM4OCIgdHJhbnNmb3JtPSJtYXRyaXgoMC43MDcgLTAuNzA3MiAwLjcwNzIgMC43MDcgLTcwLjc3MTIgMTcwLjkxOSkiIHdpZHRoPSI0Mi42NjciIGhlaWdodD0iNDQwLjUyOCIgZmlsbD0iIzljOTc5YyIvPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=');
                 background-size: 12px 12px;
+                z-index: 1;
             }
 
             .avatar-actions {
@@ -44,6 +45,7 @@
                 color: #ced0d1;
                 text-align: -webkit-center;
                 padding-top: 4px;
+                z-index: 1;
             }
 
             .upload {
@@ -56,6 +58,7 @@
                 height: 100%;
                 top: 0;
                 z-index: 0;
+                cursor: pointer;
             }
 
         }

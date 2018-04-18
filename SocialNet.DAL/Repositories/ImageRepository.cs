@@ -6,6 +6,7 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using SocialNet.Comon;
 using SocialNet.DAL.Abstract.Repositories;
 using SocialNet.DAL.Models;
 using SocialNet.DAL.Repositories.Base;
@@ -32,6 +33,25 @@ namespace SocialNet.DAL.Repositories
             Context.SaveChanges();
 
             return Mapper.Map<AvatarDomain>(avatar);
+        }
+
+        public AvatarDomain RemoveAvatar(long myId)
+        {
+            var avatar = Context.Avatar.First(x => x.UserId == myId && x.Active == true);
+            var avatarName = avatar.Path;
+            Context.Avatar.Remove(avatar);
+            FileHelper.DeleteImage(avatarName);
+
+            var oldAvatar = Context.Avatar.FirstOrDefault(x => x.UserId == myId && x.Active == false);
+
+            if (oldAvatar != null)
+            {
+                oldAvatar.Active = true;
+            }
+
+            Context.SaveChanges();
+
+            return Mapper.Map<AvatarDomain>(oldAvatar);
         }
 
         public void SaveStream(string path, List<Stream> filesList)
