@@ -12,7 +12,7 @@ namespace SocialNet.Comon
 
         public static string Host()
         {
-            return HttpContext.Current.Request.Url.Authority;
+            return "http://" + HttpContext.Current.Request.Url.Authority + "/Images/";
         }
 
     }

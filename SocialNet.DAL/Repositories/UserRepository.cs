@@ -10,6 +10,7 @@ using SocialNet.DAL.Models;
 using SocialNet.DAL.Repositories.Base;
 using SocialNet.Domain.User;
 using System.Data.Entity;
+using SocialNet.Comon;
 using SocialNet.Domain.Enums;
 
 namespace SocialNet.DAL.Repositories
@@ -39,14 +40,14 @@ namespace SocialNet.DAL.Repositories
             return Context.Friendships.FirstOrDefault(x => x.UserOneId == firstValue && x.UserTwoId == secondValue);
         }
         
-        public UserDomain GetUser(long myId, long userId, string host = "")
+        public UserDomain GetUser(long myId, long userId)
         {
             var user = Context.Users.First(x => x.Id == userId);        
             var userDomain = Mapper.Map<UserDomain>(user);
             var avatarName = Context.Avatar.FirstOrDefault(x => x.UserId == userId && x.Active == true)?.Path;
 
             userDomain.RelationType = GetUserRelation(myId, userId);
-            userDomain.Avatar = "http://" + host + "/Images/" + avatarName;
+            userDomain.Avatar = GetPath.Host() + avatarName;
 
             return userDomain;
         }

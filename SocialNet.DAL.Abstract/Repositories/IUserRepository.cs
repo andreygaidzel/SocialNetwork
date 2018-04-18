@@ -10,7 +10,7 @@ namespace SocialNet.DAL.Abstract.Repositories
 {
     public interface IUserRepository
     {
-        UserDomain GetUser(long myId, long userId, string path);
+        UserDomain GetUser(long myId, long userId);
         List<UserDomain> GetFriends(long myId, UserRelation userRelation);
         List<UserDomain> Search(string searchWord);
         UserDomain ChangeRelation(long myId, long userId, FriendStatus friendStatus);

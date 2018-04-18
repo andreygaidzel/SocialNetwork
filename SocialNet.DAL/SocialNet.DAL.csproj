@@ -70,6 +70,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SocialNet.Comon\SocialNet.Common.csproj">
+      <Project>{1b01e8a5-a2e8-4f10-9b11-ac03bc2423b2}</Project>
+      <Name>SocialNet.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SocialNet.DAL.Abstract\SocialNet.DAL.Abstract.csproj">
       <Project>{c8cb3276-70da-4fbf-bf0f-163ef74898c7}</Project>
       <Name>SocialNet.DAL.Abstract</Name>
