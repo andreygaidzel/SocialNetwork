@@ -4,7 +4,7 @@
       <div class="avatar"></div>
       <div class="remove" *ngIf="myPage"></div>
       <div class="avatar-actions" *ngIf="myPage" (click)="fileInput.click()">Обновить фотографию</div>
-      <img src="{{this.path}}"/>
+      <img class="my-avatar" src="{{this.path}}"/>
       <input class="upload" type="file" (change)="onUpload($event)" #fileInput/>
     </div>
     <app-actions-root [user]="user"></app-actions-root>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SocialNet.Comon;
 using SocialNet.DAL.Abstract.Repositories;
 using SocialNet.Domain.Enums;
 using SocialNet.Domain.User;
@@ -24,7 +25,8 @@ namespace SocialNet.BLL.Services
 
         public UserDomain GetUser(long userId)
         {
-            return UserRepository.GetUser(UserInfo.MyId, userId);
+            
+            return UserRepository.GetUser(UserInfo.MyId, userId, GetPath.Host());
         }
 
         public List<UserDomain> GetFriends(UserRelation userRelation)

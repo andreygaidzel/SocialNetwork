@@ -39,13 +39,14 @@ namespace SocialNet.DAL.Repositories
             return Context.Friendships.FirstOrDefault(x => x.UserOneId == firstValue && x.UserTwoId == secondValue);
         }
         
-        public UserDomain GetUser(long myId, long userId)
+        public UserDomain GetUser(long myId, long userId, string host = "")
         {
             var user = Context.Users.First(x => x.Id == userId);        
-
             var userDomain = Mapper.Map<UserDomain>(user);
+            var avatarName = Context.Avatar.FirstOrDefault(x => x.UserId == userId && x.Active == true)?.Path;
 
             userDomain.RelationType = GetUserRelation(myId, userId);
+            userDomain.Avatar = "http://" + host + "/Images/" + avatarName;
 
             return userDomain;
         }

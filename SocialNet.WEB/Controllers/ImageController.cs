@@ -30,7 +30,7 @@ namespace SocialNet.WEB.Controllers
             HttpContext.Current.Server.MapPath("z");
 
             var filesList = FilesHelper.Get();
-            var host = HttpContext.Current.Request.Url.Authority;
+            
 
             //  HttpResponseMessage result = null;
             // var httpRequest = HttpContext.Current.Request;

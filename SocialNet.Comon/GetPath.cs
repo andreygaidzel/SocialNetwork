@@ -9,6 +9,11 @@ namespace SocialNet.Comon
         {
            return HttpContext.Current.Server.MapPath("/");
         }
-       
+
+        public static string Host()
+        {
+            return HttpContext.Current.Request.Url.Authority;
+        }
+
     }
 }

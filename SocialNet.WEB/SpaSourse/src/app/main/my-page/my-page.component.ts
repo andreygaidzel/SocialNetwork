@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { UserService } from '../../../services/user.service';
 import { User } from '../../../models/dto-models';
 import { AuthService } from '../../../services/auth.service';
@@ -53,6 +53,7 @@ export class MyPageComponent implements OnInit
         {
           this.user = user;
           console.log(user);
+          this.path = user.avatar;
         });
     });
   }

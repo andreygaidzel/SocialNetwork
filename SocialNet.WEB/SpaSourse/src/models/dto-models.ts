@@ -11,6 +11,7 @@ export class User
   public dateOfBirth: string;
   public city: string;
   public relationType: UserRelation;
+  public avatar: string;
 }
 
 export class Authentication
