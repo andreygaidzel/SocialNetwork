@@ -22,7 +22,7 @@ export class MyPageComponent implements OnInit
     public userId: number;
     public myPage = false;
     public isAvatar = false;
-    public isSend = false;
+    public isNotSend = true;
     public myId: number;
     public image: string;
     public path: string;
@@ -62,7 +62,7 @@ export class MyPageComponent implements OnInit
 
     public showSettings(): void
     {
-        if (this.userId === this.myId && this.isSend === false)
+        if (this.userId === this.myId)
         {
             this.myPage = true;
 
@@ -92,27 +92,26 @@ export class MyPageComponent implements OnInit
         event.srcElement.value = '';
         const formData = new FormData();
         formData.append('file', file, file.name);
+        this.isNotSend = false;
 
         this.imageService.addAvatar(formData)
             .subscribe(avatar =>
             {
                 console.log(avatar);
                 this.path = avatar.fullPath;
+                this.isNotSend = true;
             });
     }
 
     public onRemoveAvatar(event: any)
     {
-        this.isAvatar = false;
-        this.isSend = true;
+        this.isNotSend = false;
         this.imageService.removeAvatar()
             .subscribe(avatar =>
             {
                 console.log(avatar);
                 this.path = avatar.fullPath;
-                this.isAvatar = true;
-                this.isSend = false;
-                this.myPage = true;
+                this.isNotSend = true;
             });
     }
 }

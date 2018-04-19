@@ -17,7 +17,7 @@ namespace SocialNet.DAL
 
         public DbSet<User> Users { get; set; }
         public DbSet<Friendship> Friendships { get; set; }
-        public DbSet<Avatar> Avatar { get; set; }
+        public DbSet<Avatar> Avatars { get; set; }
 
         /*  protected override void OnModelCreating(DbModelBuilder modelBuilder)
           {

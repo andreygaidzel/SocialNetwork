@@ -22,6 +22,12 @@ namespace SocialNet.DAL.Repositories
 
         public AvatarDomain AddAvatar(long myId, string name)
         {
+            var oldAvatar = Context.Avatars.FirstOrDefault(x => x.UserId == myId && x.Active == true);
+
+            if (oldAvatar != null)
+            {
+                oldAvatar.Active = false;
+            }
             var avatar = new Avatar
             {
                 Path = name,
@@ -29,7 +35,7 @@ namespace SocialNet.DAL.Repositories
                 UserId = myId
             };
 
-            Context.Avatar.Add(avatar);
+            Context.Avatars.Add(avatar);
             Context.SaveChanges();
 
             return Mapper.Map<AvatarDomain>(avatar);
@@ -37,12 +43,12 @@ namespace SocialNet.DAL.Repositories
 
         public AvatarDomain RemoveAvatar(long myId)
         {
-            var avatar = Context.Avatar.First(x => x.UserId == myId && x.Active == true);
+            var avatar = Context.Avatars.First(x => x.UserId == myId && x.Active == true);
             var avatarName = avatar.Path;
-            Context.Avatar.Remove(avatar);
+            Context.Avatars.Remove(avatar);
             FileHelper.DeleteImage(avatarName);
 
-            var oldAvatar = Context.Avatar.FirstOrDefault(x => x.UserId == myId && x.Active == false);
+            var oldAvatar = Context.Avatars.OrderByDescending(x => x.Id).FirstOrDefault(x => x.UserId == myId && x.Active == false);
 
             if (oldAvatar != null)
             {
