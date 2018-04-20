@@ -23,35 +23,37 @@ import { SearchComponent } from './header/search/search.component';
 import { SearchPageComponent } from './main/search-page/search-page.component';
 import { UserGridComponent } from '../core/user-grid/user-grid.component';
 import { HttpService } from '../services/http.service';
-import { ActionsComponent} from './main/my-page/actions/actions.component';
-import {ImageService} from "../services/image.service";
+import { ActionsComponent } from './main/my-page/actions/actions.component';
+import { ImageService } from '../services/image.service';
+import { AvatarComponent } from './main/my-page/avatar/avatar.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    MyPageComponent,
-    MenuComponent,
-    NotFoundComponent,
-    MessagesComponent,
-    FriendsComponent,
-    RegistrationComponent,
-    MainComponent,
-    AuthComponent,
-    LoginComponent,
-    SearchComponent,
-    SearchPageComponent,
-    UserGridComponent,
-    ActionsComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    HttpClientModule,
-    ROUTING
-  ],
-  providers: [UserService, LoginService, AuthService, AuthGuard, HttpService, ImageService],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        MyPageComponent,
+        MenuComponent,
+        NotFoundComponent,
+        MessagesComponent,
+        FriendsComponent,
+        RegistrationComponent,
+        MainComponent,
+        AuthComponent,
+        LoginComponent,
+        SearchComponent,
+        SearchPageComponent,
+        UserGridComponent,
+        ActionsComponent,
+        AvatarComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpClientModule,
+        ROUTING
+    ],
+    providers: [UserService, LoginService, AuthService, AuthGuard, HttpService, ImageService],
+    bootstrap: [AppComponent]
 })
 export class AppModule
 {

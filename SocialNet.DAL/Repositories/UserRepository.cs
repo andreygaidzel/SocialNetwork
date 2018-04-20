@@ -47,7 +47,15 @@ namespace SocialNet.DAL.Repositories
             var avatarName = Context.Avatars.FirstOrDefault(x => x.UserId == userId && x.Active == true)?.Path;
 
             userDomain.RelationType = GetUserRelation(myId, userId);
-            userDomain.Avatar = GetPath.Host() + avatarName;
+
+            if (avatarName != null)
+            {
+                userDomain.Avatar = GetPath.Host() + avatarName;
+            }
+            else
+            {
+                userDomain.Avatar = null;
+            }
 
             return userDomain;
         }

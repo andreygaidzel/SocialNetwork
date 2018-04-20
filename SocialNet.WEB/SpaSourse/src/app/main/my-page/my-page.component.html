@@ -1,27 +1,21 @@
 <div class="my-page" *ngIf="user">
-  <div class="left">
-    <div class="avatar-block" (mouseenter)="showSettings()" (mouseleave)="closeSettings()">
-      <div class="avatar"></div>
-      <div class="remove" *ngIf="isAvatar && isNotSend" (click)="onRemoveAvatar($event)"></div>
-      <div class="avatar-actions" *ngIf="myPage && isNotSend" (click)="fileInput.click()">Обновить фотографию</div>
-      <img class="my-avatar" *ngIf="this.path" src="{{this.path}}"/>
-      <input class="upload" type="file" (change)="onUpload($event)" #fileInput/>
+    <div class="left">
+        <app-avatar-root [user]="user"></app-avatar-root>
+        <app-actions-root [user]="user"></app-actions-root>
     </div>
-    <app-actions-root [user]="user"></app-actions-root>
-  </div>
-  <div class="right">
-    <div class="name">{{user.fullName}}</div>
-    <div class="information">
-      <div class="description">
-        Дата рождения: <br>
-        Город: <br>
-        Прописка: <br>
-      </div>
-      <div class="value">
-        {{user.dateOfBirth | date:'dd LLLL yyyy'}} <br>
-        {{user.city}} <br>
-        vk.com/2222121 <br>
-      </div>
+    <div class="right">
+        <div class="name">{{user.fullName}}</div>
+        <div class="information">
+            <div class="description">
+                Дата рождения: <br>
+                Город: <br>
+                Прописка: <br>
+            </div>
+            <div class="value">
+                {{user.dateOfBirth | date:'dd LLLL yyyy'}} <br>
+                {{user.city}} <br>
+                vk.com/2222121 <br>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
