@@ -20,4 +20,9 @@ export class ImageService {
     {
         return this.httpService.get<Avatar>(`api/image/removeavatar/`);
     }
+
+    public getAvatars(): Observable<Avatar[]>
+    {
+        return this.httpService.get<Avatar[]>(`api/image/getavatars/`);
+    }
 }

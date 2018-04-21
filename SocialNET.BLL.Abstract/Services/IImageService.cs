@@ -12,5 +12,6 @@ namespace SocialNET.BLL.Abstract.Services
     {
         AvatarDomain AddAvatar(List<Stream> filesList);
         AvatarDomain RemoveAvatar();
+        List<AvatarDomain> GetAvatars();
     }
 }

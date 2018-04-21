@@ -73,5 +73,12 @@ namespace SocialNet.DAL.Repositories
                 new Exception("Не то с файлами");
             }
         }
+
+        public List<AvatarDomain> GetAvatars(long myId)
+        {
+            var avatars = Context.Avatars.OrderByDescending(x => x.Id).Where(x => x.UserId == myId).ToList();
+
+            return Mapper.Map<List<AvatarDomain>>(avatars);
+        }
     }
 }

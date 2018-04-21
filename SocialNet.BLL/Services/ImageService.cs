@@ -41,5 +41,10 @@ namespace SocialNet.BLL.Services
         {
             return ImageRepository.RemoveAvatar(UserInfo.MyId);
         }
+
+        public List<AvatarDomain> GetAvatars()
+        {
+            return ImageRepository.GetAvatars(UserInfo.MyId);
+        }
     }
 }

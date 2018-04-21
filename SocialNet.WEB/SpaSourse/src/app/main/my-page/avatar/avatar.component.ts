@@ -1,6 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ImageService } from '../../../../services/image.service';
 import { User } from '../../../../models/dto-models';
+import { UserGridComponent } from '../../../../core/user-grid/user-grid.component';
+import { ImageModalComponent } from '../../../../core/image-modal/image-modal.component';
 
 @Component({
     selector: 'app-avatar-root',
@@ -9,6 +11,8 @@ import { User } from '../../../../models/dto-models';
 })
 export class AvatarComponent
 {
+    @ViewChild(ImageModalComponent) child: ImageModalComponent;
+
     public _user = new User();
 
     @Input()
@@ -17,7 +21,6 @@ export class AvatarComponent
         this._user = user;
         this.path = user.avatar;
     }
-
 
     private imageService: ImageService;
 
@@ -95,6 +98,16 @@ export class AvatarComponent
                 }
 
                 this.isNotSend = true;
+            });
+    }
+
+    public onAvatarModalShow(event: any)
+    {
+        this.imageService.getAvatars()
+            .subscribe(avatars =>
+            {
+                console.log(avatars);
+                this.child.onAvatarModalShow(avatars);
             });
     }
 }

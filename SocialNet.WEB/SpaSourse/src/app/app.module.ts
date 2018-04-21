@@ -26,6 +26,7 @@ import { HttpService } from '../services/http.service';
 import { ActionsComponent } from './main/my-page/actions/actions.component';
 import { ImageService } from '../services/image.service';
 import { AvatarComponent } from './main/my-page/avatar/avatar.component';
+import { ImageModalComponent } from '../core/image-modal/image-modal.component';
 
 @NgModule({
     declarations: [
@@ -44,7 +45,8 @@ import { AvatarComponent } from './main/my-page/avatar/avatar.component';
         SearchPageComponent,
         UserGridComponent,
         ActionsComponent,
-        AvatarComponent
+        AvatarComponent,
+        ImageModalComponent
     ],
     imports: [
         BrowserModule,

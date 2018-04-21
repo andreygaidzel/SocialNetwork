@@ -40,5 +40,12 @@ namespace SocialNet.WEB.Controllers
         {
             return ImageService.RemoveAvatar();
         }
+
+        [HttpGet]
+        [Route("getavatars")]
+        public List<AvatarDomain> GetAvatars()
+        {
+            return ImageService.GetAvatars();
+        }
     }
 }
