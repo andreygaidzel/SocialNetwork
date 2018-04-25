@@ -1,6 +1,6 @@
 import { AuthService } from '../../services/auth.service';
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { PageContext } from '../../services/page-context.service';
 
 @Component({
@@ -10,13 +10,11 @@ import { PageContext } from '../../services/page-context.service';
 export class BasesComponent
 {
     private authService: AuthService;
-    private activateRoute: ActivatedRoute;
     private router: Router;
 
     public constructor(pageContext: PageContext)
     {
         this.authService = pageContext.authService;
-        this.activateRoute = pageContext.activateRoute;
         this.router = pageContext.router;
     }
 

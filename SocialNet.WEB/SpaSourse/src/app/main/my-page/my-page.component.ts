@@ -16,7 +16,7 @@ export class MyPageComponent extends BasesComponent implements OnInit
 {
    // private authService: AuthService;
     private userService: UserService;
-    private activateRouter: ActivatedRoute;
+    private activatedRoute: ActivatedRoute;
     private pageContext: PageContext;
 
     public user = new User();
@@ -25,38 +25,35 @@ export class MyPageComponent extends BasesComponent implements OnInit
     public image: string;
     public path: string;
 
-    public constructor(userService: UserService, pageContext: PageContext)
+    public constructor(userService: UserService, pageContext: PageContext, activatedRoute: ActivatedRoute)
     {
         super(pageContext);
         this.userService = userService;
-       // this.authService = authService;
-        this.activateRouter = pageContext.activateRoute;
+        this.activatedRoute = activatedRoute;
         this.pageContext = pageContext;
     }
 
     public ngOnInit(): void
     {
-        this.activateRouter.params.subscribe(params =>
+        this.activatedRoute.params.subscribe(params =>
         {
             this.userId = Number(params['id']);
             console.log(this.userId);
-           // this.myId = this.authService.authentication.id;
-
-            if (!this.userId)
-            {
-                this.userId = this.myId;
-                this.navigate([`id/${this.myId}`]);
-            }
-
-            this.userService.getUser(this.userId)
-                .subscribe(user =>
-                {
-                    this.user = user;
-                   // console.log(user);
-                   // this.path = user.avatar;
-                });
+            // this.myId = this.authService.authentication.id;
         });
+
+        if (!this.userId)
+        {
+            this.userId = this.myId;
+            this.navigate([`id/${this.myId}`]);
+        }
+
+        this.userService.getUser(this.userId)
+            .subscribe(user =>
+            {
+                this.user = user;
+                // console.log(user);
+                // this.path = user.avatar;
+            });
     }
-
-
 }
