@@ -27,6 +27,8 @@ import { ActionsComponent } from './main/my-page/actions/actions.component';
 import { ImageService } from '../services/image.service';
 import { AvatarComponent } from './main/my-page/avatar/avatar.component';
 import { ImageModalComponent } from '../core/image-modal/image-modal.component';
+import { BasesComponent } from './base/base.component';
+import { PageContext } from '../services/page-context.service';
 
 @NgModule({
     declarations: [
@@ -46,7 +48,8 @@ import { ImageModalComponent } from '../core/image-modal/image-modal.component';
         UserGridComponent,
         ActionsComponent,
         AvatarComponent,
-        ImageModalComponent
+        ImageModalComponent,
+        BasesComponent
     ],
     imports: [
         BrowserModule,
@@ -54,7 +57,7 @@ import { ImageModalComponent } from '../core/image-modal/image-modal.component';
         HttpClientModule,
         ROUTING
     ],
-    providers: [UserService, LoginService, AuthService, AuthGuard, HttpService, ImageService],
+    providers: [UserService, LoginService, AuthService, AuthGuard, HttpService, ImageService, PageContext],
     bootstrap: [AppComponent]
 })
 export class AppModule

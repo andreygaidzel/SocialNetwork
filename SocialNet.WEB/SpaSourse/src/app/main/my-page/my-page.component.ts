@@ -4,46 +4,47 @@ import { User } from '../../../models/dto-models';
 import { AuthService } from '../../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImageService } from '../../../services/image.service';
+import { BasesComponent } from '../../base/base.component';
+import { PageContext } from '../../../services/page-context.service';
 
 @Component({
     selector: 'app-my-page-root',
     templateUrl: './my-page.component.html',
     styleUrls: ['./my-page.component.scss']
 })
-export class MyPageComponent implements OnInit
+export class MyPageComponent extends BasesComponent implements OnInit
 {
-    private authService: AuthService;
+   // private authService: AuthService;
     private userService: UserService;
-    private activateRoute: ActivatedRoute;
-    private router: Router;
+    private activateRouter: ActivatedRoute;
+    private pageContext: PageContext;
 
     public user = new User();
     public userId: number;
-    public myId: number;
+    public myId: number = this.getMyId()
     public image: string;
     public path: string;
 
-    public constructor(userService: UserService, authService: AuthService,
-                       activateRoute: ActivatedRoute, router: Router)
+    public constructor(userService: UserService, pageContext: PageContext)
     {
+        super(pageContext);
         this.userService = userService;
-        this.authService = authService;
-      //  this.imageService = imageService;
-        this.activateRoute = activateRoute;
-        this.router = router;
+       // this.authService = authService;
+        this.activateRouter = pageContext.activateRoute;
+        this.pageContext = pageContext;
     }
 
     public ngOnInit(): void
     {
-        this.activateRoute.params.subscribe(params =>
+        this.activateRouter.params.subscribe(params =>
         {
             this.userId = Number(params['id']);
-            this.myId = this.authService.authentication.id;
+           // this.myId = this.authService.authentication.id;
 
             if (!this.userId)
             {
                 this.userId = this.myId;
-                this.router.navigate([`id/${this.myId}`]);
+                this.navigate([`id/${this.myId}`]);
             }
 
             this.userService.getUser(this.userId)

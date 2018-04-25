@@ -15,12 +15,16 @@ export class ImageModalComponent
     public number = 0;
     public rightButtonShow = true;
     public leftButtonShow = false;
-    public buttosShow = false;
+    public buttonShow = false;
 
     public onAvatarModalShow(images: Avatar[])
     {
         this.avatarModal = true;
         this.imageList = images;
+        if (this.number + 1 === this.imageList.length)
+        {
+            this.rightButtonShow = false;
+        }
     }
 
     public onAvatarModalClose(event: any)
@@ -67,11 +71,11 @@ export class ImageModalComponent
 
     public onButtonsShow()
     {
-        this.buttosShow = true;
+        this.buttonShow = true;
     }
 
     public onButtonsHide()
     {
-        this.buttosShow = false;
+        this.buttonShow = false;
     }
 }

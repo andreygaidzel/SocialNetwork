@@ -7,12 +7,12 @@
                     <img class="image-img" *ngIf="this.imageList[0]" src="{{this.imageList[number].fullPath}}"/>
                 </div>
 
-                <div class="left" *ngIf="this.leftButtonShow && this.buttosShow" (click)="onPrevImg()"></div>
-                <div class="right" *ngIf="this.rightButtonShow && this.buttosShow" (click)="onNextImg()"></div>
+                <div class="left" *ngIf="this.leftButtonShow && this.buttonShow" (click)="onPrevImg()"></div>
+                <div class="right" *ngIf="this.rightButtonShow && this.buttonShow" (click)="onNextImg()"></div>
             </div>
         </div>
         <div class="text">
-            Фотокарточка № {{this.number}} из {{this.imageList.length}}
+            Фотокарточка № {{this.number + 1}} из {{this.imageList.length}}
         </div>
     </div>
 </div>

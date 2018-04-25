@@ -42,7 +42,7 @@ namespace SocialNet.DAL.Repositories
         
         public UserDomain GetUser(long myId, long userId)
         {
-            var user = Context.Users.First(x => x.Id == userId);        
+            var user = Context.Users.FirstOrDefault(x => x.Id == userId);        
             var userDomain = Mapper.Map<UserDomain>(user);
             var avatarName = Context.Avatars.FirstOrDefault(x => x.UserId == userId && x.Active == true)?.Path;
 

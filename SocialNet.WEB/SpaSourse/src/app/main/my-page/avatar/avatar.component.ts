@@ -1,15 +1,16 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ImageService } from '../../../../services/image.service';
 import { User } from '../../../../models/dto-models';
-import { UserGridComponent } from '../../../../core/user-grid/user-grid.component';
 import { ImageModalComponent } from '../../../../core/image-modal/image-modal.component';
+import { BasesComponent } from '../../../base/base.component';
+import { PageContext } from '../../../../services/page-context.service';
 
 @Component({
     selector: 'app-avatar-root',
     templateUrl: './avatar.component.html',
     styleUrls: ['./avatar.component.scss']
 })
-export class AvatarComponent
+export class AvatarComponent extends BasesComponent
 {
     @ViewChild(ImageModalComponent) child: ImageModalComponent;
 
@@ -20,6 +21,9 @@ export class AvatarComponent
     {
         this._user = user;
         this.path = user.avatar;
+        this.userId = user.id;
+       // console.log(this.userId);
+       // console.log(this.myId);
     }
 
     private imageService: ImageService;
@@ -28,12 +32,13 @@ export class AvatarComponent
     public myPage = false;
     public isAvatar = false;
     public isNotSend = true;
-    public myId: number;
+    public myId: number = this.getMyId();
     public image: string;
     public path: string;
 
-    public constructor(imageService: ImageService)
+    public constructor(imageService: ImageService, pageContext: PageContext)
     {
+        super(pageContext);
         this.imageService = imageService;
     }
 

@@ -4,6 +4,7 @@ import { User } from '../../../../models/dto-models';
 import { UserService } from '../../../../services/user.service';
 import { AuthService } from '../../../../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PageContext } from '../../../../services/page-context.service';
 
 @Component({
   selector: 'app-actions-root',
@@ -31,15 +32,14 @@ export class ActionsComponent
 
   private router: Router;
   public isDropDownShow = false;
-  public userId: number;
   public friendStatus = FriendStatus;
 
-  public constructor(userService: UserService, authService: AuthService, activateRoute: ActivatedRoute, router: Router)
+  public constructor(userService: UserService, pageContext: PageContext)
   {
     this.userService = userService;
-    this.authService = authService;
-    this.activateRoute = activateRoute;
-    this.router = router;
+   // this.authService = pageContext.authService;
+   // this.activateRoute = pageContext.activateRoute;
+   // this.router = pageContext.router;
   }
 
   private onSendRelation(friendStatus: FriendStatus): void
