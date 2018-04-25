@@ -42,10 +42,10 @@ namespace SocialNet.WEB.Controllers
         }
 
         [HttpGet]
-        [Route("getavatars")]
-        public List<AvatarDomain> GetAvatars()
+        [Route("getavatars/{userId}")]
+        public List<AvatarDomain> GetAvatars(long userId)
         {
-            return ImageService.GetAvatars();
+            return ImageService.GetAvatars(userId);
         }
     }
 }

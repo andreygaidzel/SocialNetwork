@@ -39,6 +39,7 @@ export class MyPageComponent extends BasesComponent implements OnInit
         this.activateRouter.params.subscribe(params =>
         {
             this.userId = Number(params['id']);
+            console.log(this.userId);
            // this.myId = this.authService.authentication.id;
 
             if (!this.userId)
@@ -51,7 +52,7 @@ export class MyPageComponent extends BasesComponent implements OnInit
                 .subscribe(user =>
                 {
                     this.user = user;
-                    console.log(user);
+                   // console.log(user);
                    // this.path = user.avatar;
                 });
         });

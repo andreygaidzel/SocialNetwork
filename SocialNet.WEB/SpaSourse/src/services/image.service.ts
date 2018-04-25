@@ -21,8 +21,8 @@ export class ImageService {
         return this.httpService.get<Avatar>(`api/image/removeavatar/`);
     }
 
-    public getAvatars(): Observable<Avatar[]>
+    public getAvatars(userId: number): Observable<Avatar[]>
     {
-        return this.httpService.get<Avatar[]>(`api/image/getavatars/`);
+        return this.httpService.get<Avatar[]>(`api/image/getavatars/${userId}`);
     }
 }

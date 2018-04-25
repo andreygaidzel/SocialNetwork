@@ -108,7 +108,7 @@ export class AvatarComponent extends BasesComponent
 
     public onAvatarModalShow(event: any)
     {
-        this.imageService.getAvatars()
+        this.imageService.getAvatars(this.userId)
             .subscribe(avatars =>
             {
                 console.log(avatars);

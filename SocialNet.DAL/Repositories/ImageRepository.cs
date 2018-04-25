@@ -74,9 +74,9 @@ namespace SocialNet.DAL.Repositories
             }
         }
 
-        public List<AvatarDomain> GetAvatars(long myId)
+        public List<AvatarDomain> GetAvatars(long userId)
         {
-            var avatars = Context.Avatars.OrderByDescending(x => x.Id).Where(x => x.UserId == myId).ToList();
+            var avatars = Context.Avatars.OrderByDescending(x => x.Id).Where(x => x.UserId == userId).ToList();
 
             return Mapper.Map<List<AvatarDomain>>(avatars);
         }
