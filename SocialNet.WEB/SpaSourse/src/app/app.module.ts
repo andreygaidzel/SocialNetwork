@@ -29,6 +29,8 @@ import { AvatarComponent } from './main/my-page/avatar/avatar.component';
 import { ImageModalComponent } from '../core/image-modal/image-modal.component';
 import { BasesComponent } from './base/base.component';
 import { PageContext } from '../services/page-context.service';
+import { NgxCroppieModule } from './modules/ngx-croppie/ngx-croppie.module';
+import { CroppiComponent} from './main/my-page/avatar/croppi/croppie.component';
 
 @NgModule({
     declarations: [
@@ -49,13 +51,15 @@ import { PageContext } from '../services/page-context.service';
         ActionsComponent,
         AvatarComponent,
         ImageModalComponent,
-        BasesComponent
+        BasesComponent,
+        CroppiComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        ROUTING
+        ROUTING,
+        NgxCroppieModule
     ],
     providers: [UserService, LoginService, AuthService, AuthGuard, HttpService, ImageService, PageContext],
     bootstrap: [AppComponent]

@@ -1,9 +1,11 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild} from '@angular/core';
 import { ImageService } from '../../../../services/image.service';
 import { User } from '../../../../models/dto-models';
 import { ImageModalComponent } from '../../../../core/image-modal/image-modal.component';
 import { BasesComponent } from '../../../base/base.component';
 import { PageContext } from '../../../../services/page-context.service';
+import { NgxCroppieComponent } from '../../../modules/ngx-croppie/ngx-croppie.component';
+import { CroppiComponent } from './croppi/croppie.component';
 
 @Component({
     selector: 'app-avatar-root',
@@ -13,6 +15,7 @@ import { PageContext } from '../../../../services/page-context.service';
 export class AvatarComponent extends BasesComponent
 {
     @ViewChild(ImageModalComponent) child: ImageModalComponent;
+    @ViewChild(CroppiComponent) childCroppi: CroppiComponent;
 
     public _user = new User();
 
