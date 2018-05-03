@@ -26,6 +26,7 @@
     "core-js": "2.4.1",
     "croppie": "^2.6.2",
     "moment": "2.21.0",
+    "ngx-croppie": "^0.1.2",
     "npm": "^5.8.0",
     "rxjs": "5.5.6",
     "zone.js": "0.8.19"
@@ -37,6 +38,7 @@
     "@types/jasmine": "~2.8.3",
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
+    "@types/croppie": "^2.5.2",
     "codelyzer": "4.0.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",

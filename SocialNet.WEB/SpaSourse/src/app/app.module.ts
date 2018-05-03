@@ -29,8 +29,8 @@ import { AvatarComponent } from './main/my-page/avatar/avatar.component';
 import { ImageModalComponent } from '../core/image-modal/image-modal.component';
 import { BasesComponent } from './base/base.component';
 import { PageContext } from '../services/page-context.service';
-import { NgxCroppieModule } from './modules/ngx-croppie/ngx-croppie.module';
 import { CroppiComponent} from './main/my-page/avatar/croppi/croppie.component';
+import { NgxCroppieModule } from './modules/ngx-croppie/ngx-croppie.module';
 
 @NgModule({
     declarations: [

@@ -3,8 +3,8 @@
     <div class="remove" *ngIf="isAvatar && isNotSend" (click)="onRemoveAvatar($event)"></div>
     <div class="avatar-actions" *ngIf="myPage && isNotSend" (click)="fileInput.click()">Обновить фотографию</div>
     <img class="my-avatar" *ngIf="this.path" src="{{this.path}}" (click)="onAvatarModalShow($event)"/>
-    <input class="upload" type="file" (change)="onUpload($event)" #fileInput/>
+    <input class="upload" type="file" (change)="onUpload($event)" #fileInput accept="image/gif, image/jpeg, image/png"/>
 </div>
 <app-image-modal-root></app-image-modal-root>
-<app-croppie-root></app-croppie-root>
+<app-croppie-root (emitter)="setNewPath($event)" (close)="closeModal()"></app-croppie-root>
 

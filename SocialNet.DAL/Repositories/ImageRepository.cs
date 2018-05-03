@@ -74,6 +74,14 @@ namespace SocialNet.DAL.Repositories
             }
         }
 
+        public void SaveBase64(string path, string avatar)
+        {
+            byte[] result = Convert.FromBase64String(avatar.Split(',')[1]);
+           // var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(avatar);
+            
+            File.WriteAllBytes(path, result);
+        }
+
         public List<AvatarDomain> GetAvatars(long userId)
         {
             var avatars = Context.Avatars.OrderByDescending(x => x.Id).Where(x => x.UserId == userId).ToList();

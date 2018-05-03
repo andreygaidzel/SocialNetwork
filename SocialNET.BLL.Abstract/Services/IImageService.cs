@@ -10,7 +10,7 @@ namespace SocialNET.BLL.Abstract.Services
 {
     public interface IImageService
     {
-        AvatarDomain AddAvatar(List<Stream> filesList);
+        AvatarDomain AddAvatar(string filesList);
         AvatarDomain RemoveAvatar();
         List<AvatarDomain> GetAvatars(long userId);
     }

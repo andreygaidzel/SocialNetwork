@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
 import * as Croppie from 'croppie';
 import { CroppieOptions, ResultOptions } from 'croppie';
@@ -10,9 +10,8 @@ export interface TempResultOptions extends ResultOptions {
 }
 
 @Component({
-    // tslint:disable-next-line:component-selector
     selector: 'ngx-croppie',
-    template: `<div #imageEdit (update)="newResult()"></div>`
+    template: `<div #imageEdit (update)="newResult()"></div> `
 })
 export class NgxCroppieComponent implements OnInit {
     @ViewChild('imageEdit') imageEdit: ElementRef;
@@ -20,12 +19,11 @@ export class NgxCroppieComponent implements OnInit {
     @Input() imageUrl: string;
     @Input() bind: (img: string) => void;
     @Input() outputFormatOptions: TempResultOptions = { type: 'base64', size: 'viewport' };
-    @Output() result: EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>
-                    = new EventEmitter<string | HTMLElement | Blob | HTMLCanvasElement>();
 
     private _croppie: Croppie;
+    private result: HTMLCanvasElement;
+
     ngOnInit(): void {
-        // https://github.com/Foliotek/Croppie/issues/470 :-( )
         this._croppie = new Croppie['Croppie'](this.imageEdit.nativeElement, this.croppieOptions);
 
         this._croppie.bind({
@@ -36,13 +34,11 @@ export class NgxCroppieComponent implements OnInit {
         };
     }
 
-    newResult() {
-        this._croppie.result(this.outputFormatOptions).then((res) => {
-            this.result.emit(res);
+    newResult(): HTMLCanvasElement {
+        this._croppie.result(this.outputFormatOptions).then((res) =>
+        {
+            this.result = res;
         });
-    }
-
-    rotate(degrees: 90 | 180 | 270 | -90 | -180 | -270) {
-        this._croppie.rotate(degrees);
+        return this.result;
     }
 }

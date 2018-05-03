@@ -25,15 +25,14 @@ namespace SocialNet.BLL.Services
             UserInfo = userInfo;
         }
 
-        public AvatarDomain AddAvatar(List<Stream> filesList)
+        public AvatarDomain AddAvatar(string avatar)
         {
             var random = Guid.NewGuid().ToString("n");
             var imageName = "User_" + UserInfo.MyId + "_IMG_" + random + ".jpg";
             var startupPath = GetPath.BaseDirectory() + "Images\\" + imageName;
 
-            ImageRepository.SaveStream(startupPath, filesList);
+            ImageRepository.SaveBase64(startupPath, avatar);
 
-           // var newAvatar = "http://localhost:60415/Images/" + imageName;
             return ImageRepository.AddAvatar(UserInfo.MyId, imageName);
         }
 

@@ -22,3 +22,20 @@ body {
   box-shadow: none
 }
 
+.button {
+    width: 200px;
+    height: 35px;
+    margin-top: 10px;
+    background: #759bff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: -webkit-center;
+    padding-top: 2px;
+    box-shadow: 0 5px 8px grey;
+    color: whitesmoke;
+}
+
+.button:hover {
+    background: rgba(123, 149, 255, 0.85);
+}
+

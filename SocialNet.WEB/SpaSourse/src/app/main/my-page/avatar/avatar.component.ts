@@ -4,8 +4,8 @@ import { User } from '../../../../models/dto-models';
 import { ImageModalComponent } from '../../../../core/image-modal/image-modal.component';
 import { BasesComponent } from '../../../base/base.component';
 import { PageContext } from '../../../../services/page-context.service';
-import { NgxCroppieComponent } from '../../../modules/ngx-croppie/ngx-croppie.component';
 import { CroppiComponent } from './croppi/croppie.component';
+import { NgxCroppieComponent } from '../../../modules/ngx-croppie/ngx-croppie.component';
 
 @Component({
     selector: 'app-avatar-root',
@@ -16,6 +16,7 @@ export class AvatarComponent extends BasesComponent
 {
     @ViewChild(ImageModalComponent) child: ImageModalComponent;
     @ViewChild(CroppiComponent) childCroppi: CroppiComponent;
+    @ViewChild(NgxCroppieComponent) result: NgxCroppieComponent;
 
     public _user = new User();
 
@@ -25,8 +26,6 @@ export class AvatarComponent extends BasesComponent
         this._user = user;
         this.path = user.avatar;
         this.userId = user.id;
-       // console.log(this.userId);
-       // console.log(this.myId);
     }
 
     private imageService: ImageService;
@@ -75,17 +74,22 @@ export class AvatarComponent extends BasesComponent
     {
         const file = event.srcElement.files[0];
         event.srcElement.value = '';
-        const formData = new FormData();
-        formData.append('file', file, file.name);
         this.isNotSend = false;
 
-        this.imageService.addAvatar(formData)
-            .subscribe(avatar =>
-            {
-                console.log(avatar);
-                this.path = avatar.fullPath;
-                this.isNotSend = true;
-            });
+        this.childCroppi.imageUpload(file);
+        this.childCroppi.isVisible = true;
+    }
+
+    public setNewPath(path: string): void
+    {
+        this.path = path;
+        this.isNotSend = true;
+    }
+
+    public closeModal(): void
+    {
+        this.isNotSend = true;
+        this.closeSettings();
     }
 
     public onRemoveAvatar(event: any)
@@ -95,6 +99,7 @@ export class AvatarComponent extends BasesComponent
             .subscribe(avatar =>
             {
                 console.log(avatar);
+
                 if (avatar !== null)
                 {
                     this.path = avatar.fullPath;

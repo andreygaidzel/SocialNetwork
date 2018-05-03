@@ -12,6 +12,7 @@ namespace SocialNet.DAL.Abstract.Repositories
     {
         AvatarDomain AddAvatar(long myId, string name);
         void SaveStream(string path, List<Stream> filesList);
+        void SaveBase64(string path, string avatar);
         AvatarDomain RemoveAvatar(long myId);
         List<AvatarDomain> GetAvatars(long userId);
     }

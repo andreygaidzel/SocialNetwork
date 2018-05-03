@@ -1,41 +1,29 @@
-import { Component, OnInit, ViewChild, OnChanges  } from '@angular/core';
-import { CroppieOptions } from 'croppie';
+import { Component, EventEmitter, ViewChild, Output } from '@angular/core';
 import { NgxCroppieComponent } from '../../../../modules/ngx-croppie/ngx-croppie.component';
-import { BasesComponent } from '../../../../base/base.component';
+import { CroppieOptions } from 'croppie';
+import { ImageService } from '../../../../../services/image.service';
 
 @Component({
     selector: 'app-croppie-root',
     templateUrl: './croppie.component.html',
     styleUrls: ['./croppie.component.scss']
 })
-export class CroppiComponent extends BasesComponent implements OnInit, OnChanges
+export class CroppiComponent
 {
     @ViewChild('ngxCroppie') ngxCroppie: NgxCroppieComponent;
+    @Output() emitter = new EventEmitter<string>();
+    @Output() close = new EventEmitter<void>();
 
-    widthPx = '200';
-    heightPx = '400';
-    imageUrl = '';
-    currentImage: string;
-    croppieImage: string;
+    public widthPx = '400';
+    public heightPx = '500';
+    public currentImage: string;
+    public croppieImage: string;
+    public isVisible = false;
+    public imageService: ImageService;
 
-
-    ngOnInit() {
-        this.currentImage = this.imageUrl;
-        this.croppieImage = this.imageUrl;
-    }
-
-    ngOnChanges(changes: any) {
-        if (this.croppieImage) { return; }
-        if (!changes.imageUrl) { return; }
-        if (!changes.imageUrl.previousValue && changes.imageUrl.currentValue) {
-            this.croppieImage = changes.imageUrl.currentValue;
-        }
-    }
-
-    public get imageToDisplay() {
-        if (this.currentImage) { return this.currentImage; }
-        if (this.imageUrl) { return this.imageUrl; }
-        return `http://placehold.it/${this.widthPx}x${this.heightPx}`;
+    public constructor(imageService: ImageService)
+    {
+        this.imageService = imageService;
     }
 
     public get croppieOptions(): CroppieOptions {
@@ -52,29 +40,31 @@ export class CroppiComponent extends BasesComponent implements OnInit, OnChanges
         return opts;
     }
 
-    // modalOpened() {
-    //   if (this.croppieImage) {
-    //     console.log('binding image to croppie');
-    //     this.ngxCroppie.bind();
-    //   }
-    // }
     newImageResultFromCroppie(img: string) {
         this.croppieImage = img;
     }
 
     saveImageFromCroppie() {
         this.currentImage = this.croppieImage;
+
+        this.imageService.addAvatar(this.ngxCroppie.newResult())
+            .subscribe(avatar =>
+            {
+                console.log(avatar);
+                this.emitter.emit(avatar.fullPath);
+                this.isVisible = false;
+            });
     }
 
     cancelCroppieEdit() {
+        this.isVisible = false;
         this.croppieImage = this.currentImage;
+        this.close.emit();
     }
 
-    imageUploadEvent(evt: any) {
-        if (!evt.target) { return; }
-        if (!evt.target.files) { return; }
-        if (evt.target.files.length !== 1) { return; }
-        const file = evt.target.files[0];
+    imageUpload(file: any) {
+        console.log(1);
+
         if (file.type !== 'image/jpeg' && file.type !== 'image/png' && file.type !== 'image/gif' && file.type !== 'image/jpg') { return; }
         const fr = new FileReader();
         fr.onloadend = (loadEvent) => {
