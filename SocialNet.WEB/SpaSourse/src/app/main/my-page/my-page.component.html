@@ -7,14 +7,14 @@
         <div class="name">{{user.fullName}}</div>
         <div class="information">
             <div class="description">
-                Дата рождения: <br>
-                Город: <br>
-                Прописка: <br>
+                <div class="item">Дата рождения:</div>
+                <div class="item">Город:</div>
+                <div class="item">Прописка:</div>
             </div>
             <div class="value">
-                {{user.dateOfBirth | date:'dd LLLL yyyy'}} <br>
-                {{user.city}} <br>
-                vk.com/2222121 <br>
+                <div class="item">{{user.dateOfBirth | date:'dd LLLL yyyy'}}</div>
+                <div class="item">{{user.city}}</div>
+                <div class="item">vk.com/2222121</div>
             </div>
         </div>
     </div>
