@@ -11,7 +11,8 @@ namespace SocialNet.DAL.Models
 {
     public class Avatar: EntityBase
     {
-        public string Path { get; set; }
+        public string AvatarName { get; set; }
+        public string IconName { get; set; }
         public bool Active { get; set; }
 
         [ForeignKey(nameof(User))]

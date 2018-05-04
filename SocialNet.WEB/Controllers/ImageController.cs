@@ -27,9 +27,7 @@ namespace SocialNet.WEB.Controllers
         [Route("addavatar")]
         public AvatarDomain AddAvatar([FromBody]AvatarModel model)
         {
-           // var filesList = FilesHelper.Get();
-
-            return ImageService.AddAvatar(model.Avatar);
+            return ImageService.AddAvatar(model.Avatar, model.Icon);
         }
 
         [HttpGet]

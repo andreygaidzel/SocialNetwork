@@ -12,11 +12,9 @@ export class ImageService {
     this.httpService = httpService;
   }
 
-  public addAvatar(image: HTMLCanvasElement): Observable<Avatar>
+  public addAvatar(avatar: HTMLCanvasElement, icon: HTMLCanvasElement): Observable<Avatar>
   {
-      const img = '8';
-
-    return this.httpService.post<Avatar>(`api/image/addavatar/`, {avatar: image, icon: img});
+    return this.httpService.post<Avatar>(`api/image/addavatar/`, {avatar: avatar, icon: icon});
   }
 
     public removeAvatar(): Observable<Avatar>

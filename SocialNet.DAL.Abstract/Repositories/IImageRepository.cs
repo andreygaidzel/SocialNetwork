@@ -10,7 +10,7 @@ namespace SocialNet.DAL.Abstract.Repositories
 {
     public interface IImageRepository
     {
-        AvatarDomain AddAvatar(long myId, string name);
+        AvatarDomain AddAvatar(long myId, string avatar, string icon);
         void SaveStream(string path, List<Stream> filesList);
         void SaveBase64(string path, string avatar);
         AvatarDomain RemoveAvatar(long myId);

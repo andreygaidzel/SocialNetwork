@@ -25,15 +25,17 @@ namespace SocialNet.BLL.Services
             UserInfo = userInfo;
         }
 
-        public AvatarDomain AddAvatar(string avatar)
+        public AvatarDomain AddAvatar(string avatar, string icon)
         {
             var random = Guid.NewGuid().ToString("n");
             var imageName = "User_" + UserInfo.MyId + "_IMG_" + random + ".jpg";
             var startupPath = GetPath.BaseDirectory() + "Images\\" + imageName;
+            var startupPathIcon = GetPath.BaseDirectory() + "Images\\" + "Icon_" + imageName;
 
             ImageRepository.SaveBase64(startupPath, avatar);
+            ImageRepository.SaveBase64(startupPathIcon, icon);
 
-            return ImageRepository.AddAvatar(UserInfo.MyId, imageName);
+            return ImageRepository.AddAvatar(UserInfo.MyId, imageName, "Icon_" + imageName);
         }
 
         public AvatarDomain RemoveAvatar()

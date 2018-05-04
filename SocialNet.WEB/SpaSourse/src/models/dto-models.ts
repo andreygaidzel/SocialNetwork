@@ -23,7 +23,7 @@ export class Authentication
 export class Avatar
 {
     public id: number;
-    public path: string;
+    public avatarName: string;
     public active: boolean;
     public userId: number;
     public fullPath: string;

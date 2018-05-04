@@ -75,7 +75,7 @@ export class AvatarComponent extends BasesComponent
         const file = event.srcElement.files[0];
         event.srcElement.value = '';
         this.isNotSend = false;
-
+        console.log(file);
         this.childCroppi.imageUpload(file);
         this.childCroppi.isVisible = true;
     }

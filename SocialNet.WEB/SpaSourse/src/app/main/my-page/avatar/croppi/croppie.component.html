@@ -1,16 +1,28 @@
 <div class="croppie" *ngIf="isVisible">
     <div class="background-croppie" (click)="cancelCroppieEdit()"></div>
     <div class="croppie-modal">
-        <div class="croppie-container">
-        <div class="image">
-            <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions"
-                         [imageUrl]="croppieImage" (result)="newImageResultFromCroppie($event)">
-            </ngx-croppie>
+        <div class="croppie-container" *ngIf="isAvatarCroppie">
+            <div class="image">
+                <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions"
+                             [imageUrl]="croppieImage" (result)="newImageResultFromCroppie($event)">
+                </ngx-croppie>
+            </div>
+
+            <div class="buttons">
+                <button type="button" class="button" (click)="saveImageFromCroppie()">Выбрать</button>
+            </div>
         </div>
 
-        <div class="buttons">
-            <button type="button" class="button" (click)="saveImageFromCroppie()">Изменить</button>
-        </div>
+        <div class="croppie-container-circle" *ngIf="isAvatarCroppie === false">
+            <div class="image-circle">
+                <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions"
+                             [imageUrl]="croppieImage" (result)="newImageResultFromCroppie($event)">
+                </ngx-croppie>
+            </div>
+
+            <div class="buttons">
+                <button type="button" class="button" (click)="sendImages()">Сохранить</button>
+            </div>
         </div>
     </div>
 </div>

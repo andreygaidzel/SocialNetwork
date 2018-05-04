@@ -20,7 +20,7 @@ namespace SocialNet.DAL.Repositories
         {
         }
 
-        public AvatarDomain AddAvatar(long myId, string name)
+        public AvatarDomain AddAvatar(long myId, string avatar, string icon)
         {
             var oldAvatar = Context.Avatars.FirstOrDefault(x => x.UserId == myId && x.Active == true);
 
@@ -28,23 +28,25 @@ namespace SocialNet.DAL.Repositories
             {
                 oldAvatar.Active = false;
             }
-            var avatar = new Avatar
+
+            var avatarModel = new Avatar
             {
-                Path = name,
+                AvatarName = avatar,
+                IconName = icon,
                 Active = true,
                 UserId = myId
             };
 
-            Context.Avatars.Add(avatar);
+            Context.Avatars.Add(avatarModel);
             Context.SaveChanges();
 
-            return Mapper.Map<AvatarDomain>(avatar);
+            return Mapper.Map<AvatarDomain>(avatarModel);
         }
 
         public AvatarDomain RemoveAvatar(long myId)
         {
             var avatar = Context.Avatars.First(x => x.UserId == myId && x.Active == true);
-            var avatarName = avatar.Path;
+            var avatarName = avatar.AvatarName;
             Context.Avatars.Remove(avatar);
             FileHelper.DeleteImage(avatarName);
 
@@ -74,11 +76,9 @@ namespace SocialNet.DAL.Repositories
             }
         }
 
-        public void SaveBase64(string path, string avatar)
+        public void SaveBase64(string path, string image)
         {
-            byte[] result = Convert.FromBase64String(avatar.Split(',')[1]);
-           // var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(avatar);
-            
+            byte[] result = Convert.FromBase64String(image.Split(',')[1]);
             File.WriteAllBytes(path, result);
         }
 
