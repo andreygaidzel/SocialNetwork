@@ -24,7 +24,12 @@ export class AvatarComponent extends BasesComponent
     public set user(user: User)
     {
         this._user = user;
-        this.path = user.avatar;
+
+        if (user.avatars)
+        {
+            this.path = user.avatars[0].avatarPath;
+        }
+
         this.userId = user.id;
     }
 
@@ -102,7 +107,7 @@ export class AvatarComponent extends BasesComponent
 
                 if (avatar !== null)
                 {
-                    this.path = avatar.fullPath;
+                    this.path = avatar.avatarPath;
                 }
                 else
                 {

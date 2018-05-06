@@ -3,8 +3,11 @@
     <div class="croppie-modal">
         <div class="croppie-container" *ngIf="isAvatarCroppie">
             <div class="image">
-                <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions"
-                             [imageUrl]="croppieImage" (result)="newImageResultFromCroppie($event)">
+                <ngx-croppie #ngxCroppie
+                             *ngIf="croppieImage"
+                             [croppieOptions]="croppieOptions"
+                             [imageUrl]="croppieImage"
+                             (result)="newImageResultFromCroppie($event)">
                 </ngx-croppie>
             </div>
 
@@ -15,8 +18,11 @@
 
         <div class="croppie-container-circle" *ngIf="isAvatarCroppie === false">
             <div class="image-circle">
-                <ngx-croppie *ngIf="croppieImage" #ngxCroppie [croppieOptions]="croppieOptions"
-                             [imageUrl]="croppieImage" (result)="newImageResultFromCroppie($event)">
+                <ngx-croppie #ngxCroppie
+                             *ngIf="croppieImage"
+                             [croppieOptions]="croppieOptions"
+                             [imageUrl]="croppieImage"
+                             (result)="newImageResultFromCroppie($event)">
                 </ngx-croppie>
             </div>
 

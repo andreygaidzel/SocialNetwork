@@ -53,7 +53,7 @@ export class MyPageComponent extends BasesComponent implements OnInit
             {
                 this.user = user;
                 // console.log(user);
-                // this.path = user.avatar;
+                // this.path = user.avatars;
             });
     }
 }

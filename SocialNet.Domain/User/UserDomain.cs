@@ -19,6 +19,6 @@ namespace SocialNet.Domain.User
         public string City { get; set; }
         public UserRelation RelationType { get; set; }
         public DateTime CreateData { get; set; }
-        public string Avatar { get; set; }
+        public List<AvatarDomain> Avatars { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SocialNet.Comon;
 
 namespace SocialNet.Domain.User
 {
@@ -15,6 +16,7 @@ namespace SocialNet.Domain.User
         public bool Active { get; set; }
         public long UserId { get; set; }
         public DateTime CreateData { get; set; }
-        public string FullPath => $"http://localhost:60415/Images/{AvatarName}";
+        public string AvatarPath => $"{GetPath.Host()}{AvatarName}";
+        public string IconPath => $"{GetPath.Host()}{IconName}";
     }
 }

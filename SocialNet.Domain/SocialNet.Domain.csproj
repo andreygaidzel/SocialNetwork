@@ -47,6 +47,11 @@
     <Compile Include="User\UserDomain.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SocialNet.Comon\SocialNet.Common.csproj">
+      <Project>{1b01e8a5-a2e8-4f10-9b11-ac03bc2423b2}</Project>
+      <Name>SocialNet.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

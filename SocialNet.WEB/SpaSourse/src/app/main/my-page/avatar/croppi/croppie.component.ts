@@ -70,7 +70,7 @@ export class CroppiComponent
             .subscribe(avatar =>
             {
                 console.log(avatar);
-                this.emitter.emit(avatar.fullPath);
+                this.emitter.emit(avatar.avatarPath);
                 this.isAvatarCroppie = !this.isAvatarCroppie;
                 this.isVisible = false;
                 // this.type = 'circle';

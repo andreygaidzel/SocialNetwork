@@ -25,7 +25,6 @@ namespace SocialNet.BLL.Services
 
         public UserDomain GetUser(long userId)
         {
-            
             return UserRepository.GetUser(UserInfo.MyId, userId);
         }
 

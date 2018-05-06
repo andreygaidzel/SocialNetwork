@@ -4,7 +4,7 @@
         <div class="image">
             <div class="image-container">
                 <div class="image-box">
-                    <img class="image-img" *ngIf="this.imageList[0]" src="{{this.imageList[number].fullPath}}"/>
+                    <img class="image-img" *ngIf="this.imageList[0]" src="{{this.imageList[number].avatarPath}}"/>
                 </div>
 
                 <div class="left" *ngIf="this.leftButtonShow && this.buttonShow" (click)="onPrevImg()"></div>

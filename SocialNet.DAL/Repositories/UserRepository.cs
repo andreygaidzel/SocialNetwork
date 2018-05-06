@@ -42,21 +42,19 @@ namespace SocialNet.DAL.Repositories
         
         public UserDomain GetUser(long myId, long userId)
         {
-            var user = Context.Users.FirstOrDefault(x => x.Id == userId);        
+            var user = Context.Users.FirstOrDefault(x => x.Id == userId);
+                
             var userDomain = Mapper.Map<UserDomain>(user);
-            var avatarName = Context.Avatars.FirstOrDefault(x => x.UserId == userId && x.Active == true)?.AvatarName;
+            var avatar = Context.Avatars.FirstOrDefault(x => x.UserId == userId && x.Active == true);
+            var avatars = new List<Avatar>() {avatar};
 
             userDomain.RelationType = GetUserRelation(myId, userId);
 
-            if (avatarName != null)
+            if (avatar != null)
             {
-                userDomain.Avatar = GetPath.Host() + avatarName;
+                userDomain.Avatars = Mapper.Map<List<AvatarDomain>>(avatars);
             }
-            else
-            {
-                userDomain.Avatar = null;
-            }
-
+    
             return userDomain;
         }
 
@@ -135,7 +133,15 @@ namespace SocialNet.DAL.Repositories
             }
 
             var friendsId = friendship.Select(x => x.UserOneId == myId ? x.UserTwoId : x.UserOneId);
-            var friends = Context.Users.Where(x => friendsId.Contains(x.Id)).ToList();
+            var friends = Context.Users.Where(x => friendsId.Contains(x.Id))
+                .Select(x => new
+                {
+                    user = x,
+                    avatarActive = x.Avatar.FirstOrDefault(y => y.Active == true)
+                })
+                .AsEnumerable()
+                .Select(x => x.user)
+                .ToList();
 
             return Mapper.Map<List<UserDomain>>(friends);
         }

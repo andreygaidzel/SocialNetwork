@@ -11,7 +11,7 @@ export class User
   public dateOfBirth: string;
   public city: string;
   public relationType: UserRelation;
-  public avatar: string;
+  public avatars: Avatar;
 }
 
 export class Authentication
@@ -24,8 +24,10 @@ export class Avatar
 {
     public id: number;
     public avatarName: string;
+    public iconName: string;
     public active: boolean;
     public userId: number;
-    public fullPath: string;
+    public avatarPath: string;
+    public iconPath: string;
 }
 
