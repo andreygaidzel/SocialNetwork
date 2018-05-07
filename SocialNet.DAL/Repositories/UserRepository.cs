@@ -137,13 +137,14 @@ namespace SocialNet.DAL.Repositories
                 .Select(x => new
                 {
                     user = x,
-                    avatarActive = x.Avatar.FirstOrDefault(y => y.Active == true)
+                    avatarActive = x.Avatars.FirstOrDefault(y => y.Active == true)
                 })
                 .AsEnumerable()
                 .Select(x => x.user)
                 .ToList();
 
-            return Mapper.Map<List<UserDomain>>(friends);
+            var tt = Mapper.Map<List<UserDomain>>(friends);
+            return tt;
         }
 
         public List<UserDomain> Search(string searchWord)

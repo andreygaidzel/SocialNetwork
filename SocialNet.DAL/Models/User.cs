@@ -15,11 +15,11 @@ namespace SocialNet.DAL.Models
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string City { get; set; }
-        public List<Avatar> Avatar { get; set; }
+        public List<Avatar> Avatars { get; set; }
 
         public User()
         {
-            Avatar = new List<Avatar>();
+            Avatars = new List<Avatar>();
         }
     }
 }

@@ -39,6 +39,23 @@ body {
     background: rgba(123, 149, 255, 0.85);
 }
 
+.buttonMin {
+    width: 167px;
+    height: 35px;
+    margin-top: 10px;
+    background: #759bff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: -webkit-center;
+    padding-top: 2px;
+    box-shadow: 1px 1px 2px grey;
+    color: whitesmoke;
+}
+
+.buttonMin:hover {
+    background: rgba(123, 149, 255, 0.85);
+}
+
 .item {
     margin-bottom: 5px;
 }
