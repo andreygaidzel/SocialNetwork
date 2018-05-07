@@ -1,25 +1,26 @@
 body {
-  margin: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, sans-serif;
 }
 
 ::-webkit-scrollbar, ::-webkit-scrollbar {
-  width: 6px;
-  background: transparent;
+    width: 6px;
+    background: transparent;
 }
 
-::-webkit-scrollbar-button:vertical:end:decrement, ::-webkit-scrollbar-button:vertical:end:decrement,::-webkit-scrollbar-button:vertical:start:increment, ::-webkit-scrollbar-button:vertical:start:increment {
-  display: none
+::-webkit-scrollbar-button:vertical:end:decrement, ::-webkit-scrollbar-button:vertical:end:decrement, ::-webkit-scrollbar-button:vertical:start:increment, ::-webkit-scrollbar-button:vertical:start:increment {
+    display: none
 }
 
 ::-webkit-scrollbar-thumb:vertical, ::-webkit-scrollbar-thumb:vertical {
-  -webkit-box-shadow: inset 3px 0 #fff;
-  box-shadow: inset 3px 0 #fff;
-  background: #89b57d
+    -webkit-box-shadow: inset 3px 0 #fff;
+    box-shadow: inset 3px 0 #fff;
+    background: #89b57d
 }
 
 ::-webkit-scrollbar-thumb:vertical:hover, ::-webkit-scrollbar-thumb:vertical:hover {
-  -webkit-box-shadow: none;
-  box-shadow: none
+    -webkit-box-shadow: none;
+    box-shadow: none
 }
 
 .button {

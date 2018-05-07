@@ -18,6 +18,10 @@
         .name {
             font-size: 18pt;
             margin-bottom: 10px;
+           // font-style: italic;
+            font-weight: bold;
+            color: #8379a8;
+            font-family: Verdana, Arial, Helvetica, sans-serif;
         }
 
         .information {
@@ -26,14 +30,18 @@
             box-shadow: 0 0 1px grey;
             display: flex;
             padding: 2%;
+            font-size: 11pt;
+            font-family: Georgia, serif;
 
             .description {
                 flex: 1;
             }
 
             .value {
+                font-size: 11pt;
                 flex: 1;
-                color: darkblue;
+                color: blue;
+                font-family: "Times New Roman", Times, serif;
             }
         }
     }
