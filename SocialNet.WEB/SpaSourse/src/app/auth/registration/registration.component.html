@@ -1,32 +1,33 @@
 <div class="registration">
-  <div class="form-registration">
-    <h2>Регистрация</h2>
-    <form action="" method="post">
-      <label>Имя</label><br>
-      <input type="text" name="name">
-      <br><br>
-      <label>Фамилия</label><br>
-      <input type="text" name="surname">
-      <br><br>
-      <label>Дата рождения</label><br>
-      <input type="text" name="day" size="1">
-      <input type="text" name="month" size="1">
-      <input type="text" name="year" size="4" maxlength="4">
-      <br><br>
-      <label>Мужской</label>&nbsp;<label>Женский</label><br>
-      <input type="radio" name="pol"> <input type="radio" name="pol">
-      <br>
-      <label>Email</label><br>
-      <input type="email" name="login">
-      <br><br>
-      <label>Пароль</label><br>
-      <input type="password" name="password"><br><br>
-      <label>Повторите пароль</label><br>
-      <input type="password" name="password">
-      <button class="buttonMin" type="submit">Регистрация</button>
-    </form>
-    <a routerLink="/login/">
-      Логин
-    </a>
-  </div>
+    <div class="form-registration">
+        <div class="form-name">Registration</div>
+        <form action="" method="post">
+            <div>Имя</div>
+            <input type="text" name="name">
+            <div>Фамилия</div>
+            <input type="text" name="surname">
+            <div>Дата рождения</div>
+            <input type="text" name="day" size="1">
+            <input type="text" name="month" size="1">
+            <input type="text" name="year" size="4" maxlength="4">
+            <div>
+                <label>Мужской</label>
+                &nbsp;&nbsp;&nbsp;
+                <label>Женский</label>
+            </div>
+            <div class="rad">
+                <input class="radio-men" type="radio" name="pol"> <input class="radio-women" type="radio" name="pol">
+            </div>
+            <div>Email</div>
+            <input type="email" name="login">
+            <div>Пароль</div>
+            <input type="password" name="password">
+            <div>Повторите пароль</div>
+            <input type="password" name="password">
+            <button class="buttonMin" type="submit">Регистрация</button>
+        </form>
+        <a class="log" routerLink="/login/">
+            Логин
+        </a>
+    </div>
 </div>

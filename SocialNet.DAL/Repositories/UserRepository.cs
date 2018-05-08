@@ -151,6 +151,13 @@ namespace SocialNet.DAL.Repositories
         {
             var users = Context.Users
                 .Where(x => x.FirstName.Contains(searchWord) || x.LastName.Contains(searchWord))
+                .Select(x => new
+                {
+                    user = x,
+                    avatarActive = x.Avatars.FirstOrDefault(y => y.Active == true)
+                })
+                .AsEnumerable()
+                .Select(x => x.user)
                 .ToList();
 
             return Mapper.Map<List<UserDomain>>(users);

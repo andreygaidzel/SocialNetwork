@@ -17,7 +17,6 @@ export class MyPageComponent extends BasesComponent implements OnInit
    // private authService: AuthService;
     private userService: UserService;
     private activatedRoute: ActivatedRoute;
-    private pageContext: PageContext;
 
     public user = new User();
     public userId: number;
@@ -30,7 +29,6 @@ export class MyPageComponent extends BasesComponent implements OnInit
         super(pageContext);
         this.userService = userService;
         this.activatedRoute = activatedRoute;
-        this.pageContext = pageContext;
     }
 
     public ngOnInit(): void
@@ -39,7 +37,6 @@ export class MyPageComponent extends BasesComponent implements OnInit
         {
             this.userId = Number(params['id']);
             console.log(this.userId);
-            // this.myId = this.authService.authentication.id;
         });
 
         if (!this.userId)
@@ -52,8 +49,6 @@ export class MyPageComponent extends BasesComponent implements OnInit
             .subscribe(user =>
             {
                 this.user = user;
-                // console.log(user);
-                // this.path = user.avatars;
             });
     }
 }

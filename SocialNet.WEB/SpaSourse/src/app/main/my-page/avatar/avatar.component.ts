@@ -24,8 +24,7 @@ export class AvatarComponent extends BasesComponent
     public set user(user: User)
     {
         this._user = user;
-
-        if (user.avatars)
+        if (user.avatars != null && user.avatars.length)
         {
             this.path = user.avatars[0].avatarPath;
         }
@@ -55,9 +54,11 @@ export class AvatarComponent extends BasesComponent
         {
             this.myPage = true;
 
-            if (this.path !== '' && this.path !== null)
+            if (this.path !== '' && this.path !== null && typeof(this.path) !== 'undefined')
             {
                 this.isAvatar = true;
+
+                console.log('qq', this.path);
             }
         }
         else

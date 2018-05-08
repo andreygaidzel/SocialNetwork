@@ -1,15 +1,14 @@
 <div class="login">
   <div class="form-login">
-    <h2>Авторизация</h2>
+    <div class="form-name">Welcom!</div>
     <form action="" method="post">
-      <label>Email</label>
+      <div>Email</div>
       <input type="text" name="login" [(ngModel)]="email">
-      <br><br>
-      <label>Пароль</label>
+      <div>Пароль</div>
       <input type="password" name="password" [(ngModel)]="password">
-      <button class="buttonMin" type="submit" (click)="loginIn()">Авторизация</button>
+      <button class="buttonMin" type="submit" (click)="loginIn()">Войти</button>
     </form>
-    <a routerLink="/registration/">
+    <a class="registr" routerLink="/registration/">
       Регистрация
     </a>
   </div>
