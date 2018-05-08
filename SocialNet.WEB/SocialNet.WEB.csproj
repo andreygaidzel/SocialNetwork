@@ -139,9 +139,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Spa_Dist\3rdpartylicenses.txt" />
+    <Content Include="Spa_Dist\assets\User_1_Avatar_27.jpg" />
+    <Content Include="Spa_Dist\favicon.ico" />
+    <Content Include="Spa_Dist\index.html" />
+    <Content Include="Spa_Dist\inline.318b50c57b4eba3d437b.bundle.js" />
+    <Content Include="Spa_Dist\main.24c649b8b276cad2712a.bundle.js" />
+    <Content Include="Spa_Dist\polyfills.ae7e37f4f7f14adcb4f7.bundle.js" />
+    <Content Include="Spa_Dist\styles.a21fd78395f442b5ca46.bundle.css" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <None Include="Web_ConnectionString.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Include="Web_ConnectionString.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\InjectionConfig.cs" />

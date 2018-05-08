@@ -6,11 +6,12 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "../Spa_Dist",
       "assets": [
         "assets",
         "favicon.ico"
       ],
+        "destroyUrl": "Spa_Dist/",
       "index": "index.html",
       "main": "main.ts",
       "polyfills": "polyfills.ts",
