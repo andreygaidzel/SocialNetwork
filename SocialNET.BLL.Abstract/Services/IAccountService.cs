@@ -10,5 +10,7 @@ namespace SocialNET.BLL.Abstract.Services
     public interface IAccountService
     {
         long Login(string login, string password);
+
+        bool Registration(UserDomain user);
     }
 }

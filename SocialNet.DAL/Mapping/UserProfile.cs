@@ -14,7 +14,8 @@ namespace SocialNet.DAL.Mapping
         public UserProfile()
         {
             CreateMap<User, UserDomain>();
-            CreateMap<UserDomain, User>();
+            CreateMap<UserDomain, User>()
+                .ForMember(x => x.CreateData, y => y.Ignore());
         }
     }
 }

@@ -22,5 +22,10 @@ namespace SocialNet.BLL.Services
         {
             return AccountRepository.Login(login, password);
         }
+
+        public bool Registration(UserDomain user)
+        {
+            return AccountRepository.Registration(user);
+        }
     }
 }

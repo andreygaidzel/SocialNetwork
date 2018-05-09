@@ -10,5 +10,7 @@ namespace SocialNet.DAL.Abstract.Repositories
     public interface IAccountRepository
     {
         long Login(string email, string pass);
+
+        bool Registration(UserDomain user);
     }
 }

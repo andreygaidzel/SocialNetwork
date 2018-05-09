@@ -1,33 +1,40 @@
 <div class="registration">
     <div class="form-registration">
         <div class="form-name">Registration</div>
-        <form action="" method="post">
             <div>Имя</div>
-            <input type="text" name="name">
+             <input type="text" name="name" [(ngModel)]="this.user.firstName" maxlength="14">
             <div>Фамилия</div>
-            <input type="text" name="surname">
+            <input type="text" name="surname" [(ngModel)]="this.user.lastName" maxlength="14">
             <div>Дата рождения</div>
-            <input type="text" name="day" size="1">
-            <input type="text" name="month" size="1">
-            <input type="text" name="year" size="4" maxlength="4">
+            <input type="date" name="date" [(ngModel)]="this.user.dateOfBirth">
+            <div>Ваш регион</div>
+            <input list="city" name="city" [(ngModel)]="this.user.city" maxlength="14">
+            <datalist id="city">
+                <option value="Минск">
+                <option value="Витебск">
+                <option value="Гомель">
+                <option value="Гродно">
+                <option value="Брест">
+                <option value="Могилев">
+            </datalist>
             <div>
                 <label>Мужской</label>
                 &nbsp;&nbsp;&nbsp;
                 <label>Женский</label>
             </div>
             <div class="rad">
-                <input class="radio-men" type="radio" name="pol"> <input class="radio-women" type="radio" name="pol">
+                <input class="radio-men" type="radio" name="sex" value="men">
+                <input class="radio-women" type="radio" name="sex" value="women">
             </div>
             <div>Email</div>
-            <input type="email" name="login">
+            <input type="email" name="login" [(ngModel)]="this.user.email" maxlength="20">
             <div>Пароль</div>
-            <input type="password" name="password">
+            <input type="password" name="password" [(ngModel)]="this.user.password" maxlength="20">
             <div>Повторите пароль</div>
-            <input type="password" name="password">
-            <button class="buttonMin" type="submit">Регистрация</button>
-        </form>
-        <a class="log" routerLink="/login/">
-            Логин
-        </a>
+            <input id="password-confirm" type="password" name="password" maxlength="20" [(ngModel)]="this.password2">
+            <button class="buttonMin" type="submit" (click)="onRegistration()">Регистрация</button>
+        <div>
+            <a class="log" routerLink="/login/">Логин</a>
+        </div>
     </div>
 </div>

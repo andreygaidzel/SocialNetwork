@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class ImageService {
   private httpService: HttpService;
 
-  public constructor(httpService: HttpService, private http: HttpClient) {
+  public constructor(httpService: HttpService) {
     this.httpService = httpService;
   }
 

@@ -29,5 +29,15 @@ namespace SocialNet.DAL.Repositories
                 return -1;
             }
         }
+
+        public bool Registration(UserDomain userDomain)
+        {
+            var user = new User();
+            user = Mapper.Map<User>(userDomain);
+            Context.Users.Add(user);
+            Context.SaveChanges();
+
+            return true;
+        }
     }
 }

@@ -56,10 +56,10 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 4,
-                    FirstName = "Olia4",
-                    LastName = "Buzova4",
+                    FirstName = "Olia",
+                    LastName = "Dmitrova",
                     DateOfBirth = new DateTime(1997, 1, 1),
-                    City = "Минск",
+                    City = "Полоцк",
                     Password = "123456",
                     Email = "9ola@mail.ru"
                 });
@@ -67,10 +67,10 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 5,
-                    FirstName = "Olia5",
-                    LastName = "Buzova5",
+                    FirstName = "Миша",
+                    LastName = "Круг",
                     DateOfBirth = new DateTime(1997, 1, 1),
-                    City = "Минск",
+                    City = "Орша",
                     Password = "123456",
                     Email = "8ola@mail.ru"
                 });
@@ -78,8 +78,8 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 6,
-                    FirstName = "Olia6",
-                    LastName = "Buzova6",
+                    FirstName = "Юля",
+                    LastName = "Слим",
                     DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
@@ -89,8 +89,8 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 7,
-                    FirstName = "Olia7",
-                    LastName = "Buzova7",
+                    FirstName = "Валя",
+                    LastName = "Верхович",
                     DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
@@ -100,8 +100,8 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 8,
-                    FirstName = "Olia8",
-                    LastName = "Buzova8",
+                    FirstName = "Olia",
+                    LastName = "Bulavka",
                     DateOfBirth = new DateTime(1997, 1, 1),
                     City = "Минск",
                     Password = "123456",
@@ -111,45 +111,12 @@ namespace SocialNet.DAL.Migrations
                 context.Users.Add(new User
                 {
                     Id = 9,
-                    FirstName = "Olia9",
-                    LastName = "Buzova9",
+                    FirstName = "Cаша",
+                    LastName = "Черный",
                     DateOfBirth = new DateTime(1997, 1, 1),
-                    City = "Минск",
+                    City = "Солигорск",
                     Password = "123456",
                     Email = "4ola@mail.ru"
-                });
-
-                context.Users.Add(new User
-                {
-                    Id = 10,
-                    FirstName = "Olia10",
-                    LastName = "Buzova10",
-                    DateOfBirth = new DateTime(1997, 1, 1),
-                    City = "Минск",
-                    Password = "123456",
-                    Email = "3ola@mail.ru"
-                });
-
-                context.Users.Add(new User
-                {
-                    Id = 11,
-                    FirstName = "Olia11",
-                    LastName = "Buzova11",
-                    DateOfBirth = new DateTime(1997, 1, 1),
-                    City = "Минск",
-                    Password = "123456",
-                    Email = "2ola@mail.ru"
-                });
-
-                context.Users.Add(new User
-                {
-                    Id = 12,
-                    FirstName = "Olia12",
-                    LastName = "Buzova12",
-                    DateOfBirth = new DateTime(1997, 1, 1),
-                    City = "Минск",
-                    Password = "123456",
-                    Email = "1ola@mail.ru"
                 });
             }
 
@@ -205,7 +172,7 @@ namespace SocialNet.DAL.Migrations
                     Id = 6,
                     UserOneId = 1,
                     UserTwoId = 7,
-                    Status = FriendStatus.Blocked,
+                    Status = FriendStatus.Friend,
                     ActionUserId = 1
                 });
             }
